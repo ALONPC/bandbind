@@ -26,6 +26,10 @@ const useStyles = makeStyles((theme) => ({
 
 export const Header = () => {
   const classes = useStyles();
+
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
   return (
     // <header className={classes.appBar}>
     <header>
@@ -40,10 +44,13 @@ export const Header = () => {
         <Typography variant="h6" className={classes.title}>
           {APP_NAME}
         </Typography>
-        {/* <LoginDialog open={open} handleOpen={handleOpen}></LoginDialog>
+        <LoginDialog
+          handleOpen={handleOpen}
+          handleClose={handleClose}
+          open={open}></LoginDialog>
         <Button onClick={handleOpen} color="inherit">
           Login
-        </Button> */}
+        </Button>
       </Toolbar>
     </header>
   );

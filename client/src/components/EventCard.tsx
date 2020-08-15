@@ -20,12 +20,27 @@ import moment from "moment";
 
 const useStyles = makeStyles((theme) => ({
   card: {
-    heigth: "auto",
-    width: 250,
+    // width: 250,
     margin: 24,
+    height: "100%",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
   },
   cardContent: {
     background: "#3333",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    flexDirection: "column",
+  },
+  cardWrapper: {},
+  grayedOutCard: {
+    // opacity: 0.4,
+  },
+  cardTitle: {
+    textAlign: "center",
   },
   media: {
     height: 260,
@@ -70,21 +85,28 @@ export const EventCard = () => {
       <Grid container direction="row" justify="center" alignItems="center">
         {loading && <CircularProgress />}
         {!loading &&
-          artists.map((artist) => (
-            <Grid key={artist.id} container item xl={3} xs={6} spacing={3}>
-              <Fade in={!loading}>
+          artists.map((artist) => {
+            const { events } = artist;
+            const hasEvents = !!events.length;
+            return (
+              <Grid key={artist.id} container item xl={2} xs={6} spacing={3}>
+                {/* <Fade in={!loading}> */}
+                {/* <div
+                    className={
+                      hasEvents ? classes.cardWrapper : classes.grayedOutCard
+                    }> */}
                 <Card className={classes.card} raised={true}>
                   <CardActionArea>
                     <CardHeader
-                      title={
-                        <Typography variant="h4">
-                          {artist.events[0] && artist.events[0].title}
-                        </Typography>
-                      }
+                      // title={
+                      //   (artist.events[0] && artist.events[0].title) ||
+                      //   artist.name
+                      // }
+                      title={artist.name}
                       subheader={
                         (artist.events[0] &&
                           moment(artist.events[0].date).format("DD/MM/YYYY")) ||
-                        "no date"
+                        "(No scheduled events)"
                       }
                     />
                     <CardMedia
@@ -107,9 +129,11 @@ export const EventCard = () => {
                     </CardContent>
                   </CardActionArea>
                 </Card>
-              </Fade>
-            </Grid>
-          ))}
+                {/* </div> */}
+                {/* </Fade> */}
+              </Grid>
+            );
+          })}
       </Grid>
     </Container>
   );

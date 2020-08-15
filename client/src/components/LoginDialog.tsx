@@ -4,45 +4,62 @@ import TextField from "@material-ui/core/TextField";
 import Dialog from "@material-ui/core/Dialog";
 import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
-import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
+import { CircularProgress } from "@material-ui/core";
 
-// export const LoginDialog = ({ handleOpen }) => {
-export const LoginDialog = () => {
-  const [open, setOpen] = useState(false);
+type Props = {
+  open: boolean;
+  handleClose: () => void;
+  handleOpen: () => void;
+};
+
+export const LoginDialog: React.FunctionComponent<Props> = ({
+  open,
+  handleOpen,
+  handleClose,
+}) => {
   console.log("LoginDialog -> open", open);
 
-  const handleClose = () => {
-    setOpen(false);
+  const [loading, setLoading] = useState(false);
+  const handleSubmit = () => {
+    setLoading(true);
   };
+
   return (
     <div>
       <Dialog
         open={open}
         onClose={handleClose}
         aria-labelledby="form-dialog-title">
-        <DialogTitle id="form-dialog-title">Subscribe</DialogTitle>
+        <DialogTitle id="form-dialog-title">Login</DialogTitle>
         <DialogContent>
-          <DialogContentText>
-            To subscribe to this website, please enter your email address here.
-            We will send updates occasionally.
-          </DialogContentText>
           <TextField
             autoFocus
             margin="dense"
             id="name"
-            label="Email Address"
+            label="Email"
             type="email"
+            fullWidth
+          />
+          <TextField
+            margin="dense"
+            id="pwd"
+            label="Password"
+            type="password"
             fullWidth
           />
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose} color="primary">
+          {/* <Button onClick={handleClose} color="primary">
             Cancel
+          </Button> */}
+          <Button
+            disabled={loading}
+            onClick={() => handleSubmit()}
+            color="primary">
+            Submit
           </Button>
-          <Button onClick={handleClose} color="primary">
-            Subscribe
-          </Button>
+          {loading && <CircularProgress size={24} />}
         </DialogActions>
       </Dialog>
     </div>
