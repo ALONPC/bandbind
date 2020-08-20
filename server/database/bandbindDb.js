@@ -1,13 +1,7 @@
 db.artists.insert([
   {
     name: "Powerwolf",
-    genres: [
-      "german metal",
-      "metal",
-      "power metal",
-      "progressive metal",
-      "speed metal",
-    ],
+    genres: ["german metal", "metal", "power metal", "progressive metal"],
     href: "https://api.spotify.com/v1/artists/5HFkc3t0HYETL4JeEbDB1v",
     imageUrl:
       "https://i.scdn.co/image/7e5b4efaffeaf013c48307970048ecfb97e068fc?640x640.jpg",
@@ -23,12 +17,6 @@ db.artists.insert([
         title: "Greenfield Festival 2021",
         date: "2021-06-03T19:00:00",
         place: "Interlaken, Switzerland",
-        status: true,
-      },
-      {
-        title: "Download Festival 2021",
-        date: "2021-06-04T19:00:00",
-        place: "Castle Donington, United Kingdom",
         status: true,
       },
       {
@@ -394,6 +382,18 @@ db.artists.insert([
     url: "https://open.spotify.com/artist/2aaLAng2L2aWD2FClzwiep",
     events: [
       {
+        title: "Dream Theater at Hollywood, CA",
+        date: "2020-08-23T09:00:00",
+        place: "Hollywood, CA",
+        status: true,
+      },
+      {
+        title: "Dream Theater at Hollywood, CA",
+        date: "2020-08-29T10:00:00",
+        place: "Hollywood, CA",
+        status: true,
+      },
+      {
         title: "Dream Theater at 日本江東区",
         date: "2020-10-22T19:00:00",
         place: "日本江東区",
@@ -441,7 +441,6 @@ db.artists.insert([
     name: "Opeth",
     genres: [
       "alternative metal",
-      "death metal",
       "metal",
       "progressive metal",
       "rock",
@@ -453,12 +452,6 @@ db.artists.insert([
       "https://i.scdn.co/image/f03a78ab9215535590b5634dd9e75fb057782f02?640x640.jpg",
     url: "https://open.spotify.com/artist/0ybFZ2Ab08V8hueghSXm6E",
     events: [
-      {
-        title: "Summer Breeze (POSTPONED TO 2021)",
-        date: "2020-08-12T19:00:00",
-        place: "Dinkelsbühl, Germany",
-        status: true,
-      },
       {
         title: "Opeth at Tallinn, Estonia",
         date: "2021-03-10T19:00:00",
@@ -657,7 +650,6 @@ db.artists.insert([
     genres: [
       "christian metal",
       "christian metalcore",
-      "deathcore",
       "melodic metalcore",
       "metalcore",
       "screamo",
@@ -666,7 +658,14 @@ db.artists.insert([
     imageUrl:
       "https://i.scdn.co/image/1c1bd2bdd10389a2cbfceac09c8c0c2d091dc5d0?640x640.jpg",
     url: "https://open.spotify.com/artist/5p9CTsn5ueGU4oScNX1axu",
-    events: [],
+    events: [
+      {
+        title: "August Burns Red at Garden City, ID",
+        date: "2020-12-12T19:30:00",
+        place: "Garden City, ID",
+        status: true,
+      },
+    ],
   },
   {
     name: "Eluveitie",
@@ -715,21 +714,15 @@ db.artists.insert([
     url: "https://open.spotify.com/artist/0krXCIkthz13P8o0v2tksH",
     events: [
       {
-        title: "*CANCELLED* Summer Breeze Open Air",
-        date: "2020-08-14T19:00:00",
-        place: "Dinkelsbühl, Germany",
-        status: true,
-      },
-      {
-        title: "Ensiferum at Helsinki, Finland",
-        date: "2020-09-02T19:00:00",
-        place: "Helsinki, Finland",
-        status: true,
-      },
-      {
         title: "HRH Vikings",
         date: "2020-11-28T19:00:00",
         place: "Sheffield, United Kingdom",
+        status: true,
+      },
+      {
+        title: "Nordic Metal Cruise",
+        date: "2021-02-06T12:00:00",
+        place: "Turku, Finland",
         status: true,
       },
       {
@@ -742,6 +735,12 @@ db.artists.insert([
         title: "Metalfest Open Air",
         date: "2021-06-03T19:00:00",
         place: "Okres Plzeň-město, Czechia",
+        status: true,
+      },
+      {
+        title: "Hellfest Open Air",
+        date: "2021-06-18T00:00:00",
+        place: "Clisson, France",
         status: true,
       },
       {
@@ -762,6 +761,12 @@ db.artists.insert([
         place: "Ballenstedt, Germany",
         status: true,
       },
+      {
+        title: "Summer Breeze Open Air 2021 2021",
+        date: "2021-08-18T19:00:00",
+        place: "Dinkelsbühl, Germany",
+        status: true,
+      },
     ],
   },
   {
@@ -774,7 +779,6 @@ db.artists.insert([
       "opera metal",
       "power metal",
       "progressive metal",
-      "speed metal",
       "symphonic metal",
     ],
     href: "https://api.spotify.com/v1/artists/1Ih0fEQQsy9EeAJbYEeQRa",
@@ -847,7 +851,6 @@ db.artists.insert([
       "gothenburg metal",
       "melodic death metal",
       "metal",
-      "progressive metal",
       "swedish death metal",
       "swedish metal",
     ],
@@ -870,12 +873,6 @@ db.artists.insert([
       "https://i.scdn.co/image/4a3d5b1307a13320b31adaa71ea459e68d9d6fe3?640x640.jpg",
     url: "https://open.spotify.com/artist/3uIgLG971oRM5fe6v8lvQS",
     events: [
-      {
-        title: "Insomnium at Kotka, Finland",
-        date: "2020-08-14T20:00:00",
-        place: "Kotka, Finland",
-        status: false,
-      },
       {
         title: "Insomnium at Çankaya, Turkey",
         date: "2020-09-11T18:30:00",
@@ -1380,6 +1377,12 @@ db.artists.insert([
         status: true,
       },
       {
+        title: "Unholy Winter Fest",
+        date: "2020-10-30T19:00:00",
+        place: "Joensuu, Finland",
+        status: true,
+      },
+      {
         title: "Amorphis at Oslo, Norway",
         date: "2020-11-16T19:00:00",
         place: "Oslo, Norway",
@@ -1544,7 +1547,6 @@ db.artists.insert([
       "musica andorra",
       "progressive metal",
       "symphonic death metal",
-      "technical death metal",
     ],
     href: "https://api.spotify.com/v1/artists/4wxyib7wQwVxwKNFBmOhAw",
     imageUrl:
@@ -1554,24 +1556,12 @@ db.artists.insert([
   },
   {
     name: "In Hearts Wake",
-    genres: [
-      "australian metalcore",
-      "melodic metalcore",
-      "metalcore",
-      "post-screamo",
-    ],
+    genres: ["australian metalcore", "melodic metalcore", "metalcore"],
     href: "https://api.spotify.com/v1/artists/30BDCIM0IdglDaLzvCYd0N",
     imageUrl:
       "https://i.scdn.co/image/b3228a5fe7fea42c29b874a63cd90f0e69b6e0cc?640x640.jpg",
     url: "https://open.spotify.com/artist/30BDCIM0IdglDaLzvCYd0N",
-    events: [
-      {
-        title: "IN HEARTS WAKE  - KALIYUGA LIVE",
-        date: "2020-08-13T20:00:00",
-        place: "",
-        status: true,
-      },
-    ],
+    events: [],
   },
   {
     name: "Equilibrium",
@@ -1587,7 +1577,7 @@ db.artists.insert([
     ],
     href: "https://api.spotify.com/v1/artists/5KvkOKroKLz202ioXfGWR2",
     imageUrl:
-      "https://i.scdn.co/image/7654851b9e6b068cce4df39fff17a891e697c0d5?640x640.jpg",
+      "https://i.scdn.co/image/e12e76e84d4f769a2b3f66ca6d4b0b467293b32e?640x640.jpg",
     url: "https://open.spotify.com/artist/5KvkOKroKLz202ioXfGWR2",
     events: [],
   },
@@ -1601,7 +1591,6 @@ db.artists.insert([
       "neo classical metal",
       "power metal",
       "progressive metal",
-      "speed metal",
       "symphonic metal",
     ],
     href: "https://api.spotify.com/v1/artists/5YeoQ1L71cXDMpSpqxOjfH",
@@ -1780,14 +1769,7 @@ db.artists.insert([
   },
   {
     name: "Metallica",
-    genres: [
-      "alternative metal",
-      "hard rock",
-      "metal",
-      "old school thrash",
-      "rock",
-      "thrash metal",
-    ],
+    genres: ["hard rock", "metal", "old school thrash", "rock", "thrash metal"],
     href: "https://api.spotify.com/v1/artists/2ye2Wgw4gimLv2eAKyk1NB",
     imageUrl:
       "https://i.scdn.co/image/5a06711d7fc48d5e0e3f9a3274ffed3f0af1bd91?640x640.jpg",
@@ -1800,21 +1782,1516 @@ db.artists.insert([
         status: false,
       },
       {
-        title: "Metallica at Southington, CT",
-        date: "2020-08-29T20:35:00",
+        title: "METALLICA presented by Encore Drive-In Nights - Lake Orion, MI",
+        date: "2020-08-29T17:00:00",
+        place: "Lake Orion, MI",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Denver, CO",
+        date: "2020-08-29T18:00:00",
+        place: "Denver, CO",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Palmer, AK",
+        date: "2020-08-29T18:30:00",
+        place: "Palmer, AK",
+        status: true,
+      },
+      {
+        title:
+          "METALLICA presented by Encore Drive-In Nights - New Richmond, WI",
+        date: "2020-08-29T19:00:00",
+        place: "New Richmond, WI",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Mesa, AZ",
+        date: "2020-08-29T19:00:00",
+        place: "Mesa, AZ",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Tucson, AZ",
+        date: "2020-08-29T19:20:00",
+        place: "Tucson, AZ",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Oro Valley, AZ",
+        date: "2020-08-29T19:20:00",
+        place: "Oro Valley, AZ",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Glendale, AZ",
+        date: "2020-08-29T19:30:00",
+        place: "Glendale, AZ",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Scottsdale, AZ",
+        date: "2020-08-29T19:30:00",
+        place: "Scottsdale, AZ",
+        status: true,
+      },
+      {
+        title:
+          "METALLICA presented by Encore Drive-In Nights - Southington, CT",
+        date: "2020-08-29T19:35:00",
         place: "Southington, CT",
         status: true,
       },
       {
-        title: "Metallica at Sacramento, CA",
-        date: "2020-10-09T19:00:00",
+        title: "METALLICA presented by Encore Drive-In Nights - Las Vegas, NV",
+        date: "2020-08-29T19:45:00",
+        place: "North Las Vegas, NV",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Concord, CA",
+        date: "2020-08-29T19:45:00",
+        place: "Concord, CA",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Colchester, VT",
+        date: "2020-08-29T19:45:00",
+        place: "Colchester, VT",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Sparks, NV",
+        date: "2020-08-29T19:45:00",
+        place: "Sparks, NV",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Homestead, FL",
+        date: "2020-08-29T19:50:00",
+        place: "Homestead, FL",
+        status: true,
+      },
+      {
+        title:
+          "METALLICA presented by Encore Drive-In Nights - St. Augustine, FL",
+        date: "2020-08-29T19:50:00",
+        place: "Saint Augustine Shores, FL",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Deltona, FL",
+        date: "2020-08-29T19:50:00",
+        place: "Deltona, FL",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Mount Dora, FL",
+        date: "2020-08-29T19:50:00",
+        place: "Mount Dora, FL",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Clermont, FL",
+        date: "2020-08-29T19:50:00",
+        place: "Clermont, FL",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Malta, NY",
+        date: "2020-08-29T19:55:00",
+        place: "Malta, NY",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Skowhegan, ME",
+        date: "2020-08-29T20:00:00",
+        place: "Skowhegan, ME",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Milford, NH",
+        date: "2020-08-29T20:00:00",
+        place: "Milford, NH",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Hinsdale, NH",
+        date: "2020-08-29T20:00:00",
+        place: "Hinsdale, NH",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Newton, IL",
+        date: "2020-08-29T20:00:00",
+        place: "Newton, IL",
+        status: true,
+      },
+      {
+        title:
+          "METALLICA presented by Encore Drive-In Nights - Grangeville, ID",
+        date: "2020-08-29T20:00:00",
+        place: "Grangeville, ID",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Tullahoma, TN",
+        date: "2020-08-29T20:00:00",
+        place: "Estill Springs, TN",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Beaufort, SC",
+        date: "2020-08-29T20:00:00",
+        place: "Beaufort, SC",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Lakeport, CA",
+        date: "2020-08-29T20:00:00",
+        place: "Lakeport, CA",
+        status: true,
+      },
+      {
+        title:
+          "METALLICA presented by Encore Drive-In Nights - Gibson City, IL",
+        date: "2020-08-29T20:00:00",
+        place: "Gibson City, IL",
+        status: true,
+      },
+      {
+        title:
+          "METALLICA presented by Encore Drive-In Nights - Prescott Valley, AZ",
+        date: "2020-08-29T20:00:00",
+        place: "Prescott Valley, AZ",
+        status: true,
+      },
+      {
+        title:
+          "METALLICA presented by Encore Drive-In Nights - Fort Collins, CO",
+        date: "2020-08-29T20:00:00",
+        place: "Fort Collins, CO",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Monroe, WI",
+        date: "2020-08-29T20:00:00",
+        place: "Monroe, WI",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Naples, FL",
+        date: "2020-08-29T20:00:00",
+        place: "Naples, FL",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Redwood, NY",
+        date: "2020-08-29T20:00:00",
+        place: "Redwood, NY",
+        status: true,
+      },
+      {
+        title:
+          "METALLICA presented by Encore Drive-In Nights - Grand Forks, ND",
+        date: "2020-08-29T20:00:00",
+        place: "Grand Forks, ND",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Sacramento, CA",
+        date: "2020-08-29T20:00:00",
         place: "Sacramento, CA",
         status: true,
       },
       {
-        title: "Metallica at Sacramento, CA",
-        date: "2020-10-11T23:00:00",
-        place: "Sacramento, CA",
+        title: "METALLICA presented by Encore Drive-In Nights - Tucson, AZ",
+        date: "2020-08-29T20:00:00",
+        place: "Tucson, AZ",
+        status: true,
+      },
+      {
+        title:
+          "METALLICA presented by Encore Drive-In Nights - Monte Vista, CO",
+        date: "2020-08-29T20:00:00",
+        place: "Monte Vista, CO",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Delta, CO",
+        date: "2020-08-29T20:00:00",
+        place: "Delta, CO",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Guin, AL",
+        date: "2020-08-29T20:00:00",
+        place: "Guin, AL",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - West Fargo, ND",
+        date: "2020-08-29T20:00:00",
+        place: "West Fargo, ND",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Glenmont, NY",
+        date: "2020-08-29T20:00:00",
+        place: "Glenmont, NY",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Tucson, AZ",
+        date: "2020-08-29T20:00:00",
+        place: "Tucson, AZ",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Coxsackie, NY",
+        date: "2020-08-29T20:00:00",
+        place: "Coxsackie, NY",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Johnstown, PA",
+        date: "2020-08-29T20:05:00",
+        place: "Johnstown, PA",
+        status: true,
+      },
+      {
+        title:
+          "METALLICA presented by Encore Drive-In Nights - Santa Maria, CA",
+        date: "2020-08-29T20:05:00",
+        place: "Santa Maria, CA",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Madera, CA",
+        date: "2020-08-29T20:05:00",
+        place: "Madera, CA",
+        status: true,
+      },
+      {
+        title:
+          "METALLICA presented by Encore Drive-In Nights - Buena Vista, CO",
+        date: "2020-08-29T20:05:00",
+        place: "Buena Vista, CO",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Brookville, PA",
+        date: "2020-08-29T20:05:00",
+        place: "Brookville, PA",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Elgin, IL",
+        date: "2020-08-29T20:15:00",
+        place: "Elgin, IL",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Franklin, KY",
+        date: "2020-08-29T20:15:00",
+        place: "Franklin, KY",
+        status: true,
+      },
+      {
+        title:
+          "METALLICA presented by Encore Drive-In Nights - Scottsbluff, NE",
+        date: "2020-08-29T20:15:00",
+        place: "Scottsbluff, NE",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Plymouth, IN",
+        date: "2020-08-29T20:15:00",
+        place: "Plymouth, IN",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Barstow, CA",
+        date: "2020-08-29T20:15:00",
+        place: "Barstow, CA",
+        status: true,
+      },
+      {
+        title:
+          "METALLICA presented by Encore Drive-In Nights - Long Prairie, MN",
+        date: "2020-08-29T20:15:00",
+        place: "Long Prairie, MN",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Vineland, NJ",
+        date: "2020-08-29T20:15:00",
+        place: "Vineland, NJ",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Waukesha, WI",
+        date: "2020-08-29T20:15:00",
+        place: "Waukesha, WI",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Warwick, NY",
+        date: "2020-08-29T20:15:00",
+        place: "Warwick, NY",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Paris, KY",
+        date: "2020-08-29T20:15:00",
+        place: "Paris, KY",
+        status: true,
+      },
+      {
+        title:
+          "METALLICA presented by Encore Drive-In Nights - Mountain View, AR",
+        date: "2020-08-29T20:15:00",
+        place: "Mountain View, AR",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Walnutport, PA",
+        date: "2020-08-29T20:15:00",
+        place: "Walnutport, PA",
+        status: true,
+      },
+      {
+        title:
+          "METALLICA presented by Encore Drive-In Nights - Pickerington, OH",
+        date: "2020-08-29T20:15:00",
+        place: "Pickerington, OH",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Hermon, ME",
+        date: "2020-08-29T20:15:00",
+        place: "Hermon, ME",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Oak Creek, WI",
+        date: "2020-08-29T20:15:00",
+        place: "Oak Creek, WI",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Sparta, TN",
+        date: "2020-08-29T20:15:00",
+        place: "Sparta, TN",
+        status: true,
+      },
+      {
+        title:
+          "METALLICA presented by Encore Drive-In Nights - Queen Creek, AZ",
+        date: "2020-08-29T20:15:00",
+        place: "Queen Creek, AZ",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Middleport, NY",
+        date: "2020-08-29T20:15:00",
+        place: "Middleport, NY",
+        status: true,
+      },
+      {
+        title:
+          "METALLICA presented by Encore Drive-In Nights - San Luis Obispo, CA",
+        date: "2020-08-29T20:15:00",
+        place: "San Luis Obispo, CA",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Montrose, CO",
+        date: "2020-08-29T20:15:00",
+        place: "Montrose, CO",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Westbrook, ME",
+        date: "2020-08-29T20:20:00",
+        place: "Westbrook, ME",
+        status: true,
+      },
+      {
+        title:
+          "METALLICA presented by Encore Drive-In Nights - New Braunfels, TX",
+        date: "2020-08-29T20:20:00",
+        place: "New Braunfels, TX",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Chardon, OH",
+        date: "2020-08-29T20:20:00",
+        place: "Chardon, OH",
+        status: true,
+      },
+      {
+        title:
+          "METALLICA presented by Encore Drive-In Nights - Palatine Bridge, NY",
+        date: "2020-08-29T20:20:00",
+        place: "Palatine Bridge, NY",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Broadalbin, NY",
+        date: "2020-08-29T20:20:00",
+        place: "Broadalbin, NY",
+        status: true,
+      },
+      {
+        title:
+          "METALLICA presented by Encore Drive-In Nights - Indianapolis, IN",
+        date: "2020-08-29T20:20:00",
+        place: "Indianapolis, IN",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Tulsa, OK",
+        date: "2020-08-29T20:25:00",
+        place: "Tulsa, OK",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Hamilton, OH",
+        date: "2020-08-29T20:25:00",
+        place: "Hamilton, OH",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Newton, AL",
+        date: "2020-08-29T20:30:00",
+        place: "Newton, AL",
+        status: true,
+      },
+      {
+        title:
+          "METALLICA presented by Encore Drive-In Nights - Mount Pleasant, PA",
+        date: "2020-08-29T20:30:00",
+        place: "Mount Pleasant, PA",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Denver, CO",
+        date: "2020-08-29T20:30:00",
+        place: "Denver, CO",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Albemarle, NC",
+        date: "2020-08-29T20:30:00",
+        place: "Albemarle, NC",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Eden, NC",
+        date: "2020-08-29T20:30:00",
+        place: "Eden, NC",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Bridgeview, IL",
+        date: "2020-08-29T20:30:00",
+        place: "Bridgeview, IL",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Chilton, WI",
+        date: "2020-08-29T20:30:00",
+        place: "Chilton, WI",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Montclair, CA",
+        date: "2020-08-29T20:30:00",
+        place: "Montclair, CA",
+        status: true,
+      },
+      {
+        title:
+          "METALLICA presented by Encore Drive-In Nights - Elizabethton, TN",
+        date: "2020-08-29T20:30:00",
+        place: "Elizabethton, TN",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Woodland, PA",
+        date: "2020-08-29T20:30:00",
+        place: "Clearfield, PA",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Fairlee, VT",
+        date: "2020-08-29T20:30:00",
+        place: "Fairlee, VT",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Lewisburg, TN",
+        date: "2020-08-29T20:30:00",
+        place: "Lewisburg, TN",
+        status: true,
+      },
+      {
+        title:
+          "METALLICA presented by Encore Drive-In Nights - Fort Pierce, FL",
+        date: "2020-08-29T20:30:00",
+        place: "Fort Pierce, FL",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Granbury, TX",
+        date: "2020-08-29T20:30:00",
+        place: "Granbury, TX",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Holmdel, NJ",
+        date: "2020-08-29T20:30:00",
+        place: "Holmdel, NJ",
+        status: true,
+      },
+      {
+        title:
+          "METALLICA presented by Encore Drive-In Nights - Kings Mountain, NC",
+        date: "2020-08-29T20:30:00",
+        place: "Kings Mountain, NC",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Warren, OH",
+        date: "2020-08-29T20:30:00",
+        place: "Warren, OH",
+        status: true,
+      },
+      {
+        title:
+          "METALLICA presented by Encore Drive-In Nights - Northumberland, PA",
+        date: "2020-08-29T20:30:00",
+        place: "Northumberland, PA",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Pensacola, FL",
+        date: "2020-08-29T20:30:00",
+        place: "Pensacola, FL",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Marshfield, MA",
+        date: "2020-08-29T20:30:00",
+        place: "Marshfield, MA",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Marion, VA",
+        date: "2020-08-29T20:30:00",
+        place: "Marion, VA",
+        status: true,
+      },
+      {
+        title:
+          "METALLICA presented by Encore Drive-In Nights - North Smithfield, RI",
+        date: "2020-08-29T20:30:00",
+        place: "North Smithfield, RI",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Dillsburg, PA",
+        date: "2020-08-29T20:30:00",
+        place: "Dillsburg, PA",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Memphis, TN",
+        date: "2020-08-29T20:30:00",
+        place: "Memphis, TN",
+        status: true,
+      },
+      {
+        title:
+          "METALLICA presented by Encore Drive-In Nights - Summersville, KY",
+        date: "2020-08-29T20:30:00",
+        place: "Summersville, KY",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Clarendon, TX",
+        date: "2020-08-29T20:30:00",
+        place: "Clarendon, TX",
+        status: true,
+      },
+      {
+        title:
+          "METALLICA presented by Encore Drive-In Nights - San Antonio, TX",
+        date: "2020-08-29T20:30:00",
+        place: "San Antonio, TX",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - San Diego, CA",
+        date: "2020-08-29T20:30:00",
+        place: "San Diego, CA",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Cadet, MO",
+        date: "2020-08-29T20:30:00",
+        place: "Cadet, MO",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Yuma, AZ",
+        date: "2020-08-29T20:30:00",
+        place: "Yuma, AZ",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Kane, PA",
+        date: "2020-08-29T20:30:00",
+        place: "Kane, PA",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Los Banos, CA",
+        date: "2020-08-29T20:30:00",
+        place: "Los Banos, CA",
+        status: true,
+      },
+      {
+        title:
+          "METALLICA presented by Encore Drive-In Nights - Hunlock Creek, PA",
+        date: "2020-08-29T20:30:00",
+        place: "Hunlock Creek, PA",
+        status: true,
+      },
+      {
+        title:
+          "METALLICA presented by Encore Drive-In Nights - Fayetteville, AR",
+        date: "2020-08-29T20:30:00",
+        place: "Fayetteville, AR",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Dearborn, MI",
+        date: "2020-08-29T20:30:00",
+        place: "Dearborn, MI",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Indiana, PA",
+        date: "2020-08-29T20:30:00",
+        place: "Indiana, PA",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Poteau, OK",
+        date: "2020-08-29T20:30:00",
+        place: "Poteau, OK",
+        status: true,
+      },
+      {
+        title:
+          "METALLICA presented by Encore Drive-In Nights - Corpus Christi, TX",
+        date: "2020-08-29T20:30:00",
+        place: "Corpus Christi, TX",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Shelton, WA",
+        date: "2020-08-29T20:30:00",
+        place: "Shelton, WA",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Topsfield, MA",
+        date: "2020-08-29T20:30:00",
+        place: "Topsfield, MA",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Fort Worth, TX",
+        date: "2020-08-29T20:30:00",
+        place: "Fort Worth, TX",
+        status: true,
+      },
+      {
+        title:
+          "METALLICA presented by Encore Drive-In Nights - Jacksonville, NC",
+        date: "2020-08-29T20:30:00",
+        place: "Jacksonville, NC",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Lockport, NY",
+        date: "2020-08-29T20:30:00",
+        place: "Lockport, NY",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Alliance, NE",
+        date: "2020-08-29T20:30:00",
+        place: "Alliance, NE",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Frisco, TX",
+        date: "2020-08-29T20:30:00",
+        place: "Frisco, TX",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Syracuse, NY",
+        date: "2020-08-29T20:30:00",
+        place: "Syracuse, NY",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Newberg, OR",
+        date: "2020-08-29T20:30:00",
+        place: "Newberg, OR",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - La Grande, OR",
+        date: "2020-08-29T20:30:00",
+        place: "La Grande, OR",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Mesquite, TX",
+        date: "2020-08-29T20:30:00",
+        place: "Mesquite, TX",
+        status: true,
+      },
+      {
+        title:
+          "METALLICA presented by Encore Drive-In Nights - Hoffman Estates, IL",
+        date: "2020-08-29T20:30:00",
+        place: "Hoffman Estates, IL",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Middletown, NY",
+        date: "2020-08-29T20:30:00",
+        place: "Middletown, NY",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Lone Tree, CO",
+        date: "2020-08-29T20:30:00",
+        place: "Denver, CO",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Oaks, PA",
+        date: "2020-08-29T20:30:00",
+        place: "Oaks, PA",
+        status: true,
+      },
+      {
+        title:
+          "METALLICA presented by Encore Drive-In Nights - Idaho Falls, ID",
+        date: "2020-08-29T20:30:00",
+        place: "Idaho Falls, ID",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Monetta, SC",
+        date: "2020-08-29T20:30:00",
+        place: "Monetta, SC",
+        status: true,
+      },
+      {
+        title:
+          "METALLICA presented by Encore Drive-In Nights - Carmichaels, PA",
+        date: "2020-08-29T20:30:00",
+        place: "Carmichaels, PA",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Mendon, MA",
+        date: "2020-08-29T20:30:00",
+        place: "Mendon, MA",
+        status: true,
+      },
+      {
+        title:
+          "METALLICA presented by Encore Drive-In Nights - Farmingdale, NY",
+        date: "2020-08-29T20:30:00",
+        place: "Farmingdale, NY",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Wichita, KS",
+        date: "2020-08-29T20:30:00",
+        place: "Wichita, KS",
+        status: true,
+      },
+      {
+        title:
+          "METALLICA presented by Encore Drive-In Nights - Woodland Hills, CA",
+        date: "2020-08-29T20:30:00",
+        place: "Woodland Hills, CA",
+        status: true,
+      },
+      {
+        title:
+          "METALLICA presented by Encore Drive-In Nights - Carrolltown, PA",
+        date: "2020-08-29T20:30:00",
+        place: "Carrolltown, PA",
+        status: true,
+      },
+      {
+        title:
+          "METALLICA presented by Encore Drive-In Nights - Stephens City, VA",
+        date: "2020-08-29T20:30:00",
+        place: "Stephens City, VA",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Lubbock, TX",
+        date: "2020-08-29T20:35:00",
+        place: "Lubbock, TX",
+        status: true,
+      },
+      {
+        title:
+          "METALLICA presented by Encore Drive-In Nights - Moon Township, PA",
+        date: "2020-08-29T20:35:00",
+        place: "Moon Township, PA",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Oregon, OH",
+        date: "2020-08-29T20:40:00",
+        place: "Oregon, OH",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Thorntown, IN",
+        date: "2020-08-29T20:40:00",
+        place: "Thorntown, IN",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - LaGrange, KY",
+        date: "2020-08-29T20:40:00",
+        place: "La Grange, KY",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Freedom, WI",
+        date: "2020-08-29T20:40:00",
+        place: "Freedom, WI",
+        status: true,
+      },
+      {
+        title:
+          "METALLICA presented by Encore Drive-In Nights - Liberty Center, OH",
+        date: "2020-08-29T20:40:00",
+        place: "Liberty Center, OH",
+        status: true,
+      },
+      {
+        title:
+          "METALLICA presented by Encore Drive-In Nights - Soda Springs, ID",
+        date: "2020-08-29T20:40:00",
+        place: "Soda Springs, ID",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Perry, NY",
+        date: "2020-08-29T20:40:00",
+        place: "Perry, NY",
+        status: true,
+      },
+      {
+        title:
+          "METALLICA presented by Encore Drive-In Nights - Middle Point, OH",
+        date: "2020-08-29T20:40:00",
+        place: "Middle Point, OH",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Tiffin, OH",
+        date: "2020-08-29T20:40:00",
+        place: "Tiffin, OH",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Columbus, OH",
+        date: "2020-08-29T20:45:00",
+        place: "Columbus, OH",
+        status: true,
+      },
+      {
+        title:
+          "METALLICA presented by Encore Drive-In Nights - Spirit Lake, IA",
+        date: "2020-08-29T20:45:00",
+        place: "Spirit Lake, IA",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Tooele, UT",
+        date: "2020-08-29T20:45:00",
+        place: "Tooele, UT",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Winchester, IN",
+        date: "2020-08-29T20:45:00",
+        place: "Winchester, IN",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Barberton, OH",
+        date: "2020-08-29T20:45:00",
+        place: "Barberton, OH",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Sidney, OH",
+        date: "2020-08-29T20:45:00",
+        place: "Sidney, OH",
+        status: true,
+      },
+      {
+        title:
+          "METALLICA presented by Encore Drive-In Nights - Mifflintown, PA",
+        date: "2020-08-29T20:45:00",
+        place: "Mifflintown, PA",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Caldwell, ID",
+        date: "2020-08-29T20:45:00",
+        place: "Caldwell, ID",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Unadilla, NY",
+        date: "2020-08-29T20:45:00",
+        place: "Unadilla, NY",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Mansfield, OH",
+        date: "2020-08-29T20:45:00",
+        place: "Mansfield, OH",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Sioux City, IA",
+        date: "2020-08-29T20:45:00",
+        place: "Sioux City, IA",
+        status: true,
+      },
+      {
+        title:
+          "METALLICA presented by Encore Drive-In Nights - Christiansburg, VA",
+        date: "2020-08-29T20:45:00",
+        place: "Christiansburg, VA",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Dodge City, KS",
+        date: "2020-08-29T20:45:00",
+        place: "Dodge City, KS",
+        status: true,
+      },
+      {
+        title:
+          "METALLICA presented by Encore Drive-In Nights - Mount Pleasant, UT",
+        date: "2020-08-29T20:45:00",
+        place: "Mount Pleasant, UT",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Pleasanton, CA",
+        date: "2020-08-29T20:45:00",
+        place: "Pleasanton, CA",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Oak Harbor, WA",
+        date: "2020-08-29T20:45:00",
+        place: "Oak Harbor, WA",
+        status: true,
+      },
+      {
+        title:
+          "METALLICA presented by Encore Drive-In Nights - Milton-Freewater, OR",
+        date: "2020-08-29T20:45:00",
+        place: "Milton-Freewater, OR",
+        status: true,
+      },
+      {
+        title:
+          "METALLICA presented by Encore Drive-In Nights - Meadow Bridge, WV",
+        date: "2020-08-29T20:45:00",
+        place: "Meadow Bridge, WV",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Midland, TX",
+        date: "2020-08-29T20:45:00",
+        place: "Midland, TX",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Brookville, OH",
+        date: "2020-08-29T20:45:00",
+        place: "Brookville, OH",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Wadsworth, OH",
+        date: "2020-08-29T20:45:00",
+        place: "Wadsworth, OH",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Houston, TX",
+        date: "2020-08-29T20:45:00",
+        place: "Houston, TX",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Avon, NY",
+        date: "2020-08-29T20:45:00",
+        place: "Avon, NY",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Hermosa, SD",
+        date: "2020-08-29T20:45:00",
+        place: "Hermosa, SD",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Harrison, MI",
+        date: "2020-08-29T20:50:00",
+        place: "Harrison, MI",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Auburn, NY",
+        date: "2020-08-29T21:00:00",
+        place: "Half Acre, NY",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Moscow, ID",
+        date: "2020-08-29T21:00:00",
+        place: "Moscow, ID",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Luverne, MN",
+        date: "2020-08-29T21:00:00",
+        place: "Luverne, MN",
+        status: true,
+      },
+      {
+        title:
+          "METALLICA presented by Encore Drive-In Nights - Mount Sterling, KY",
+        date: "2020-08-29T21:00:00",
+        place: "Mount Sterling, KY",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Atlanta, GA",
+        date: "2020-08-29T21:00:00",
+        place: "Atlanta, GA",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Cheyenne, WY",
+        date: "2020-08-29T21:00:00",
+        place: "Cheyenne, WY",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Fort Worth, TX",
+        date: "2020-08-29T21:00:00",
+        place: "Fort Worth, TX",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Bishop, CA",
+        date: "2020-08-29T21:00:00",
+        place: "Bishop, CA",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Amelia, OH",
+        date: "2020-08-29T21:00:00",
+        place: "Amelia, OH",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Hamilton, MT",
+        date: "2020-08-29T21:00:00",
+        place: "Hamilton, MT",
+        status: true,
+      },
+      {
+        title:
+          "METALLICA presented by Encore Drive-In Nights - West Wyoming, PA",
+        date: "2020-08-29T21:00:00",
+        place: "West Wyoming, PA",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Manistique, MI",
+        date: "2020-08-29T21:00:00",
+        place: "Manistique, MI",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Grindstone, PA",
+        date: "2020-08-29T21:00:00",
+        place: "Grindstone, PA",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Parma, ID",
+        date: "2020-08-29T21:00:00",
+        place: "Parma, ID",
+        status: true,
+      },
+      {
+        title:
+          "METALLICA presented by Encore Drive-In Nights - Terre Haute, IN",
+        date: "2020-08-29T21:00:00",
+        place: "Terre Haute, IN",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Hayden, ID",
+        date: "2020-08-29T21:00:00",
+        place: "Hayden, ID",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Maryville, TN",
+        date: "2020-08-29T21:00:00",
+        place: "Maryville, TN",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Tiger, GA",
+        date: "2020-08-29T21:00:00",
+        place: "Tiger, GA",
+        status: true,
+      },
+      {
+        title:
+          "METALLICA presented by Encore Drive-In Nights - West Valley, UT",
+        date: "2020-08-29T21:00:00",
+        place: "West Valley City, UT",
+        status: true,
+      },
+      {
+        title:
+          "METALLICA presented by Encore Drive-In Nights - Springfield, IL",
+        date: "2020-08-29T21:00:00",
+        place: "Springfield, IL",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Abilene, TX",
+        date: "2020-08-29T21:00:00",
+        place: "Abilene, TX",
+        status: true,
+      },
+      {
+        title:
+          "METALLICA presented by Encore Drive-In Nights - Martinsville, IN",
+        date: "2020-08-29T21:00:00",
+        place: "Martinsville, IN",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Norton, VA",
+        date: "2020-08-29T21:00:00",
+        place: "Norton, VA",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Garrett, IN",
+        date: "2020-08-29T21:00:00",
+        place: "Garrett, IN",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Flint, MI",
+        date: "2020-08-29T21:00:00",
+        place: "Flint, MI",
+        status: true,
+      },
+      {
+        title:
+          "METALLICA presented by Encore Drive-In Nights - Bloomington, IN",
+        date: "2020-08-29T21:00:00",
+        place: "Bloomington, IN",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Greenwood, SC",
+        date: "2020-08-29T21:00:00",
+        place: "Greenwood, SC",
+        status: true,
+      },
+      {
+        title:
+          "METALLICA presented by Encore Drive-In Nights - Richland Center, WI",
+        date: "2020-08-29T21:00:00",
+        place: "Richland Center, WI",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Ennis, TX",
+        date: "2020-08-29T21:00:00",
+        place: "Ennis, TX",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Gratz, PA",
+        date: "2020-08-29T21:00:00",
+        place: "Gratz, PA",
+        status: true,
+      },
+      {
+        title:
+          "METALLICA presented by Encore Drive-In Nights - Roanoke Rapids, NC",
+        date: "2020-08-29T21:00:00",
+        place: "Roanoke Rapids, NC",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Norwalk, OH",
+        date: "2020-08-29T21:00:00",
+        place: "Norwalk, OH",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Redfield, SD",
+        date: "2020-08-29T21:00:00",
+        place: "Redfield, SD",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Delevan, NY",
+        date: "2020-08-29T21:00:00",
+        place: "Delevan, NY",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Hockley, TX",
+        date: "2020-08-29T21:00:00",
+        place: "Hockley, TX",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Neligh, NE",
+        date: "2020-08-29T21:00:00",
+        place: "Neligh, NE",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Cortland, NY",
+        date: "2020-08-29T21:00:00",
+        place: "Cortland, NY",
+        status: true,
+      },
+      {
+        title:
+          "METALLICA presented by Encore Drive-In Nights - Wintersville, OH",
+        date: "2020-08-29T21:00:00",
+        place: "Wintersville, OH",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Southaven, MS",
+        date: "2020-08-29T21:00:00",
+        place: "Southaven, MS",
+        status: true,
+      },
+      {
+        title:
+          "METALLICA presented by Encore Drive-In Nights - Albuquerque, NM",
+        date: "2020-08-29T21:00:00",
+        place: "Albuquerque, NM",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Round Rock, TX",
+        date: "2020-08-29T21:00:00",
+        place: "Round Rock, TX",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Ocala, FL",
+        date: "2020-08-29T21:15:00",
+        place: "Ocala, FL",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Shattuck, OK",
+        date: "2020-08-29T21:15:00",
+        place: "Shattuck, OK",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Omak, WA",
+        date: "2020-08-29T21:15:00",
+        place: "Omak, WA",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Blue Grass, IA",
+        date: "2020-08-29T21:15:00",
+        place: "Blue Grass, IA",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Bellevue, NE",
+        date: "2020-08-29T21:15:00",
+        place: "Bellevue, NE",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Versailles, IN",
+        date: "2020-08-29T21:15:00",
+        place: "Versailles, IN",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Lincoln, NE",
+        date: "2020-08-29T21:15:00",
+        place: "Lincoln, NE",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Somerset, KY",
+        date: "2020-08-29T21:15:00",
+        place: "Somerset, KY",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Driggs, ID",
+        date: "2020-08-29T21:25:00",
+        place: "Driggs, ID",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Dayton, OH",
+        date: "2020-08-29T21:30:00",
+        place: "Dayton, OH",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Wilmington, OH",
+        date: "2020-08-29T21:30:00",
+        place: "Wilmington, OH",
+        status: true,
+      },
+      {
+        title:
+          "METALLICA presented by Encore Drive-In Nights - Carsonville, MI",
+        date: "2020-08-29T21:30:00",
+        place: "Carsonville, MI",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Billings, MT",
+        date: "2020-08-29T21:30:00",
+        place: "Billings, MT",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Champlin, MN",
+        date: "2020-08-29T21:30:00",
+        place: "Champlin, MN",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Dowagiac, MI",
+        date: "2020-08-29T21:30:00",
+        place: "Dowagiac, MI",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Athens, TN",
+        date: "2020-08-29T21:30:00",
+        place: "Athens, TN",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Winner, SD",
+        date: "2020-08-29T21:30:00",
+        place: "Winner, SD",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Huntington, IN",
+        date: "2020-08-29T21:30:00",
+        place: "Huntington, IN",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Springer, OK",
+        date: "2020-08-29T21:30:00",
+        place: "Springer, OK",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Waterford, PA",
+        date: "2020-08-29T21:30:00",
+        place: "Waterford, PA",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Hartford, MI",
+        date: "2020-08-29T21:30:00",
+        place: "Hartford, MI",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Coldwater, MI",
+        date: "2020-08-29T21:30:00",
+        place: "Coldwater, MI",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Muskegon, MI",
+        date: "2020-08-29T21:30:00",
+        place: "Muskegon, MI",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Gregory, SD",
+        date: "2020-08-29T21:45:00",
+        place: "Gregory, SD",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Ventura, CA",
+        date: "2020-08-29T23:00:00",
+        place: "Ventura, CA",
+        status: true,
+      },
+      {
+        title: "METALLICA presented by Encore Drive-In Nights - Memphis, TN",
+        date: "2020-08-29T23:30:00",
+        place: "Memphis, TN",
         status: true,
       },
       {
@@ -2269,6 +3746,7 @@ db.artists.insert([
     name: "Dreamshade",
     genres: [
       "melodic death metal",
+      "melodic metalcore",
       "post-screamo",
       "swedish metalcore",
       "swiss metal",
@@ -2277,6 +3755,221 @@ db.artists.insert([
     imageUrl:
       "https://i.scdn.co/image/2c8562b0181a8489195eb5d6019ac851cfce567a?640x640.jpg",
     url: "https://open.spotify.com/artist/3A7sZMxNjhJWX7apY1UpQO",
+    events: [],
+  },
+  {
+    name: "Amaranthe",
+    genres: ["gothic symphonic metal", "power metal"],
+    href: "https://api.spotify.com/v1/artists/2KaW48xlLnXC2v8tvyhWsa",
+    imageUrl:
+      "https://i.scdn.co/image/fc932bb4c42e45c9eb55ea0e0f9d2ed9e3d32560?640x640.jpg",
+    url: "https://open.spotify.com/artist/2KaW48xlLnXC2v8tvyhWsa",
+    events: [
+      {
+        title: "Amaranthe at Munich, Germany",
+        date: "2021-04-09T18:00:00",
+        place: "Munich, Germany",
+        status: true,
+      },
+      {
+        title: "Amaranthe at Berlin, Germany",
+        date: "2021-04-10T18:00:00",
+        place: "Berlin, Germany",
+        status: true,
+      },
+      {
+        title: "Amaranthe at Antwerpen, Belgium",
+        date: "2021-04-11T18:00:00",
+        place: "Antwerpen, Belgium",
+        status: true,
+      },
+      {
+        title: "Amaranthe at Paris, France",
+        date: "2021-04-16T18:00:00",
+        place: "Paris, France",
+        status: true,
+      },
+      {
+        title: "Amaranthe at Bordeaux, France",
+        date: "2021-04-17T18:00:00",
+        place: "Bordeaux, France",
+        status: true,
+      },
+      {
+        title: "Amaranthe at Barcelona, Spain",
+        date: "2021-04-18T18:00:00",
+        place: "Barcelona, Spain",
+        status: true,
+      },
+      {
+        title: "Amaranthe at Madrid, Spain",
+        date: "2021-04-19T18:00:00",
+        place: "Madrid, Spain",
+        status: true,
+      },
+      {
+        title: "Amaranthe at Lyon, France",
+        date: "2021-04-21T18:00:00",
+        place: "Lyon, France",
+        status: true,
+      },
+      {
+        title: "Amaranthe at Ludwigsburg, Germany",
+        date: "2021-04-22T18:00:00",
+        place: "Ludwigsburg, Germany",
+        status: true,
+      },
+      {
+        title: "Amaranthe at Offenbach, Germany",
+        date: "2021-04-23T18:00:00",
+        place: "Offenbach, Germany",
+        status: true,
+      },
+      {
+        title: "Amaranthe at Hamburg, Germany",
+        date: "2021-04-24T18:00:00",
+        place: "Hamburg, Germany",
+        status: true,
+      },
+      {
+        title: "Amaranthe at Trezzo sull'Adda, Italy",
+        date: "2021-04-26T18:00:00",
+        place: "Trezzo sull'Adda, Italy",
+        status: true,
+      },
+      {
+        title: "Amaranthe at Zürich, Switzerland",
+        date: "2021-04-27T18:00:00",
+        place: "Zürich, Switzerland",
+        status: true,
+      },
+      {
+        title: "Amaranthe at Lausanne, Switzerland",
+        date: "2021-04-28T18:00:00",
+        place: "Lausanne, Switzerland",
+        status: true,
+      },
+      {
+        title: "Amaranthe at Leipzig, Germany",
+        date: "2021-04-30T18:00:00",
+        place: "Leipzig, Germany",
+        status: true,
+      },
+      {
+        title: "Amaranthe at Zlín, Czechia",
+        date: "2021-05-01T18:00:00",
+        place: "Zlín, Czechia",
+        status: true,
+      },
+      {
+        title: "Amaranthe at Vienna, Austria",
+        date: "2021-05-02T18:00:00",
+        place: "Vienna, Austria",
+        status: true,
+      },
+      {
+        title: "Amaranthe at Warsaw, Poland",
+        date: "2021-05-04T18:00:00",
+        place: "Warsaw, Poland",
+        status: true,
+      },
+      {
+        title: "Amaranthe at Budapest, Hungary",
+        date: "2021-05-05T18:00:00",
+        place: "Budapest, Hungary",
+        status: true,
+      },
+      {
+        title: "Amaranthe at Geiselwind, Germany",
+        date: "2021-05-07T18:00:00",
+        place: "Geiselwind, Germany",
+        status: true,
+      },
+      {
+        title: "Amaranthe at Oberhausen, Germany",
+        date: "2021-05-08T18:00:00",
+        place: "Oberhausen, Germany",
+        status: true,
+      },
+      {
+        title: "Amaranthe at Utrecht, Netherlands",
+        date: "2021-05-09T18:00:00",
+        place: "Utrecht, Netherlands",
+        status: true,
+      },
+      {
+        title: "Amaranthe at Copenhagen, Denmark",
+        date: "2021-05-11T18:00:00",
+        place: "Copenhagen, Denmark",
+        status: true,
+      },
+      {
+        title: "Amaranthe at Oslo, Norway",
+        date: "2021-05-12T18:00:00",
+        place: "Oslo, Norway",
+        status: true,
+      },
+      {
+        title: "Amaranthe at Göteborg, Sweden",
+        date: "2021-05-13T18:00:00",
+        place: "Göteborg, Sweden",
+        status: true,
+      },
+      {
+        title: "Amaranthe at Stockholm, Sweden",
+        date: "2021-05-14T18:00:00",
+        place: "Stockholm, Sweden",
+        status: true,
+      },
+    ],
+  },
+  {
+    name: "In Mourning",
+    genres: ["melodic death metal", "swedish progressive metal"],
+    href: "https://api.spotify.com/v1/artists/0gsIXiV7rw5I9wJaxgoOdB",
+    imageUrl:
+      "https://i.scdn.co/image/f30c7cfb5327a6559a413bc7bf9b9730c884d364?640x640.jpg",
+    url: "https://open.spotify.com/artist/0gsIXiV7rw5I9wJaxgoOdB",
+    events: [],
+  },
+  {
+    name: "Memphis May Fire",
+    genres: ["melodic metalcore", "metalcore", "post-screamo", "screamo"],
+    href: "https://api.spotify.com/v1/artists/7cNNNhdJDrt3vgQjwSavNf",
+    imageUrl:
+      "https://i.scdn.co/image/14caff95a56392792d96f19f6cb231547f34f49f?640x640.jpg",
+    url: "https://open.spotify.com/artist/7cNNNhdJDrt3vgQjwSavNf",
+    events: [],
+  },
+  {
+    name: "Architects",
+    genres: [
+      "mathcore",
+      "melodic metalcore",
+      "metalcore",
+      "progressive metalcore",
+      "uk metalcore",
+    ],
+    href: "https://api.spotify.com/v1/artists/3ZztVuWxHzNpl0THurTFCv",
+    imageUrl:
+      "https://i.scdn.co/image/2b9294dc25928c9773d8d0b9e5b28a0bdf8d265c?640x640.jpg",
+    url: "https://open.spotify.com/artist/3ZztVuWxHzNpl0THurTFCv",
+    events: [],
+  },
+  {
+    name: "Kamelot",
+    genres: [
+      "melodic metal",
+      "metal",
+      "neo classical metal",
+      "power metal",
+      "progressive metal",
+      "symphonic metal",
+    ],
+    href: "https://api.spotify.com/v1/artists/7gTbq5nTZGQIUgjEGXQpOS",
+    imageUrl:
+      "https://i.scdn.co/image/f993aa40319bc43d45f872d0e8b9cad9047e9ecc?640x640.jpg",
+    url: "https://open.spotify.com/artist/7gTbq5nTZGQIUgjEGXQpOS",
     events: [],
   },
 ]);
