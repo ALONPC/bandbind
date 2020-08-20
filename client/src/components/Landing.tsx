@@ -1,72 +1,24 @@
-import React, { useState, useEffect, FunctionComponent } from "react";
-// import { makeStyles } from "@material-ui/core";
+import React, { useState, useEffect } from "react";
 
-import {
-  Typography,
-  makeStyles,
-  Grid,
-  Paper,
-  Card,
-  CardHeader,
-  CardContent,
-  GridList,
-  GridListTile,
-  rgbToHex,
-  Box,
-} from "@material-ui/core";
+import { Typography, makeStyles, Grid, Box } from "@material-ui/core";
 import { IArtist } from "../../@types/artist";
-import { EventCard } from "./EventCard";
+import { ArtistCard } from "./ArtistCard";
+import _ from "lodash";
 
 const useStyles = makeStyles((theme) => ({
   background: {
-    flexGrow: 1,
-
-    padding: theme.spacing(10),
-    backgroundImage: `url('https://wallpaperboat.com/wp-content/uploads/2019/12/concert-23.jpg')`,
-    backgroundSize: "cover",
+    backgroundImage: `linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('https://www.itl.cat/pngfile/big/28-286780_twenty-one-pilots-wallpapers-photo-festival-wallpaper.jpg')`,
+    backgroundSize: "auto",
+    backgroundRepeat: "no-repeat",
     overflow: "hidden",
-    height: "100vh",
-    // opacity: 0.38,
   },
-  paper: {
-    padding: theme.spacing(2),
+  content: {
+    margin: theme.spacing(10),
+  },
+  contentText: {
     textAlign: "center",
-    color: theme.palette.text.secondary,
-  },
-  artistsWrapper: {},
-  artistMosaic: {
-    root: {
-      display: "flex",
-      flexWrap: "wrap",
-      "& > *": {
-        margin: theme.spacing(1),
-        width: theme.spacing(16),
-        height: theme.spacing(16),
-      },
-    },
-  },
-  display: {
-    flexGrow: 2,
-    display: "flex",
-    alignContent: "center",
-    alignItems: "start",
-    backgroundColor: theme.palette.background.paper,
-    width: "100%",
-    height: 500,
-  },
-  displayText: {
-    flexGrow: 1,
-    padding: theme.spacing(3),
-  },
-  gridListContainer: {
-    flexGrow: 1,
-    display: "wrap",
-    justifyContent: "space-around",
-    overflow: "hidden",
-  },
-  gridList: {
-    width: 500,
-    height: 450,
+    margin: theme.spacing(3),
+    fontWeight: 600,
   },
 }));
 
@@ -92,71 +44,27 @@ export const Landing = () => {
         setLoading(false);
       });
     console.log("getArtists -> artists", artists);
-    setArtists(artists);
+    setArtists(_.shuffle(artists));
   };
-
-  const data = [
-    { quarter: 1, earnings: 13000 },
-    { quarter: 2, earnings: 16500 },
-    { quarter: 3, earnings: 14250 },
-    { quarter: 4, earnings: 19000 },
-  ];
 
   return (
     <div className={classes.background}>
-      <Box className={classes.display}>
-        <Grid container className={classes.displayText}>
-          <Grid item>
-            <Typography variant="h2">Be on the front row, always!</Typography>
-          </Grid>
-        </Grid>
-        <Grid container className={classes.gridListContainer}>
-          <GridList cellHeight={160} className={classes.gridList} cols={3}>
-            {artists.map(({ id, imageUrl, name }) => (
-              <GridListTile key={id} cols={1}>
-                <img src={imageUrl} alt={name} />
-              </GridListTile>
-            ))}
-          </GridList>
-        </Grid>
-        {/* <Grid container className={classes.gridListContainer}>
-          <GridList cellHeight={160} className={classes.gridList} cols={3}>
-            {artists.map(({ id, imageUrl, name }) => (
-              <GridListTile key={id} cols={1}>
-                <img src={imageUrl} alt={name} />
-              </GridListTile>
-            ))}
-          </GridList>
-        </Grid> */}
-      </Box>
-      {/* <div className={classes.root}>
-      <GridList cellHeight={160} className={classes.gridList} cols={3}>
-        {tileData.map((tile) => (
-          <GridListTile key={tile.img} cols={tile.cols || 1}>
-            <img src={tile.img} alt={tile.title} />
-          </GridListTile>
-        ))}
-      </GridList>
-    </div> */}
-
-      {/* <Grid container direction="row" justify="center" alignItems="center"> */}
-
-      {/* <Grid container>
-        <Grid container>
-          <Grid item>
-            <Typography variant="h2">Be on the front row, always!</Typography>
-          </Grid>
-        </Grid>
-        <Grid container>
-          <Grid item xs={12}>
-            {artists.map((artist) => (
-              <Grid item>
-                <EventCard artist={artist} isLanding={true}></EventCard>
+      <Box className={classes.content}>
+        <Typography variant="h2" className={classes.contentText}>
+          Watch thousands of bands live!
+        </Typography>
+        <Typography variant="h4" className={classes.contentText}>
+          Be on the front row, always 🤘
+        </Typography>
+        <Grid container direction="row" justify="center" alignItems="center">
+          {!loading &&
+            artists.map((artist) => (
+              <Grid item lg={2} md={4} sm={6}>
+                <ArtistCard isLanding={true} artist={artist}></ArtistCard>
               </Grid>
             ))}
-          </Grid>
         </Grid>
-      </Grid> */}
+      </Box>
     </div>
   );
 };

@@ -1,7 +1,6 @@
 import React, { FunctionComponent } from "react";
 import {
   Typography,
-  Grid,
   Card,
   makeStyles,
   CardActionArea,
@@ -9,26 +8,24 @@ import {
   CardContent,
   Chip,
   CardHeader,
-  Paper,
 } from "@material-ui/core";
 import { IArtist } from "../../@types/artist";
 import moment from "moment";
 
 const useStyles = makeStyles((theme) => ({
   card: {
-    margin: 24,
-    height: "100%",
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
+    margin: theme.spacing(3),
+    // display: "flex",
+    // flexDirection: "column",
+    // alignItems: "center",
+    // justifyContent: "center",
   },
   cardContent: {
     background: "#3333",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    flexDirection: "column",
+    // display: "flex",
+    // alignItems: "center",
+    // justifyContent: "center",
+    // flexDirection: "column",
   },
   media: {
     height: 260,
@@ -52,12 +49,12 @@ type Props = {
   isLanding: boolean;
 };
 
-export const EventCard: FunctionComponent<Props> = ({ artist, isLanding }) => {
+export const ArtistCard: FunctionComponent<Props> = ({ artist, isLanding }) => {
   const classes = useStyles();
   const { events } = artist;
   const hasEvents = !!events.length;
   return isLanding ? (
-    <Card key={artist.id} className={classes.card} raised={true}>
+    <Card key={artist.id} className={classes.card}>
       <CardActionArea>
         <CardMedia
           className={classes.media}
@@ -72,8 +69,7 @@ export const EventCard: FunctionComponent<Props> = ({ artist, isLanding }) => {
         <CardHeader
           title={artist.name}
           subheader={
-            (artist.events[0] &&
-              moment(artist.events[0].date).format("DD/MM/YYYY")) ||
+            (hasEvents && moment(artist.events[0].date).format("DD/MM/YYYY")) ||
             "(No scheduled events)"
           }
         />
