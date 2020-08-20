@@ -9,6 +9,10 @@ import {
   Card,
   CardHeader,
   CardContent,
+  GridList,
+  GridListTile,
+  rgbToHex,
+  Box,
 } from "@material-ui/core";
 import { IArtist } from "../../@types/artist";
 import { EventCard } from "./EventCard";
@@ -40,6 +44,29 @@ const useStyles = makeStyles((theme) => ({
         height: theme.spacing(16),
       },
     },
+  },
+  display: {
+    flexGrow: 2,
+    display: "flex",
+    alignContent: "center",
+    alignItems: "start",
+    backgroundColor: theme.palette.background.paper,
+    width: "100%",
+    height: 500,
+  },
+  displayText: {
+    flexGrow: 1,
+    padding: theme.spacing(3),
+  },
+  gridListContainer: {
+    flexGrow: 1,
+    display: "wrap",
+    justifyContent: "space-around",
+    overflow: "hidden",
+  },
+  gridList: {
+    width: 500,
+    height: 450,
   },
 }));
 
@@ -77,30 +104,40 @@ export const Landing = () => {
 
   return (
     <div className={classes.background}>
-      <Grid container direction="row">
-        <Grid
-          container
-          spacing={1}
-          direction="row"
-          justify="flex-start"
-          alignItems="flex-start">
+      <Box className={classes.display}>
+        <Grid container className={classes.displayText}>
           <Grid item>
-            <Typography variant="h4">Be in the front line</Typography>
+            <Typography variant="h2">Be on the front row, always!</Typography>
           </Grid>
         </Grid>
-        <Grid
-          container
-          spacing={1}
-          direction="row"
-          justify="flex-start"
-          alignItems="flex-start">
-          {artists.slice(0, 8).map((artist) => (
-            <Grid item xs={12} sm={6} md={3} key={artist.id}>
-              <EventCard artist={artist} isLanding={true}></EventCard>
-            </Grid>
-          ))}
+        <Grid container className={classes.gridListContainer}>
+          <GridList cellHeight={160} className={classes.gridList} cols={3}>
+            {artists.map(({ id, imageUrl, name }) => (
+              <GridListTile key={id} cols={1}>
+                <img src={imageUrl} alt={name} />
+              </GridListTile>
+            ))}
+          </GridList>
         </Grid>
-      </Grid>
+        {/* <Grid container className={classes.gridListContainer}>
+          <GridList cellHeight={160} className={classes.gridList} cols={3}>
+            {artists.map(({ id, imageUrl, name }) => (
+              <GridListTile key={id} cols={1}>
+                <img src={imageUrl} alt={name} />
+              </GridListTile>
+            ))}
+          </GridList>
+        </Grid> */}
+      </Box>
+      {/* <div className={classes.root}>
+      <GridList cellHeight={160} className={classes.gridList} cols={3}>
+        {tileData.map((tile) => (
+          <GridListTile key={tile.img} cols={tile.cols || 1}>
+            <img src={tile.img} alt={tile.title} />
+          </GridListTile>
+        ))}
+      </GridList>
+    </div> */}
 
       {/* <Grid container direction="row" justify="center" alignItems="center"> */}
 
