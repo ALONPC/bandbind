@@ -1,21 +1,11 @@
 import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import {
-  AppBar,
-  Toolbar,
-  Typography,
-  Button,
-  IconButton,
-} from "@material-ui/core";
+import { Toolbar, Typography, Button, IconButton } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
 import { APP_NAME } from "../../contants";
 import { LoginDialog } from "../LoginDialog";
 
 const useStyles = makeStyles((theme) => ({
-  header: {
-    // color: theme.palette.primary.main,
-    // backgroundColor: theme.palette.background.header,
-  },
   title: {
     flexGrow: 1,
   },
@@ -31,7 +21,6 @@ export const Header = () => {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   return (
-    // <header className={classes.appBar}>
     <header>
       <Toolbar>
         <IconButton

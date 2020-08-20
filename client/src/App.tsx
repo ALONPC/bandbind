@@ -4,7 +4,7 @@ import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 import { Header } from "./components/Layout/Header";
 import { Content } from "./components/Layout/Content";
 import { Footer } from "./components/Layout/Footer";
-import { EventCard } from "./components/EventCard";
+// import { EventCard } from "./components/EventCard";
 import { BrowserRouter, Route } from "react-router-dom";
 import { Landing } from "./components/Landing";
 const theme = createMuiTheme({

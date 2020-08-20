@@ -7,11 +7,9 @@ export const Footer = () => {
   const useStyles = makeStyles((theme) => ({
     footer: {
       textAlign: "center",
-      // backgroundColor: theme.palette.background.footer,
       padding: theme.spacing(1),
       width: "100%",
-      position: "fixed",
-      bottom: 0,
+      // position: "fixed",
     },
   }));
 
@@ -20,7 +18,10 @@ export const Footer = () => {
   return (
     <footer className={classes.footer}>
       <Typography color="textSecondary">
-        🤘 {`© ${APP_NAME} ${moment().format("YYYY")}.`}
+        <span role="img" aria-label="🤘">
+          🤘
+        </span>{" "}
+        {`© ${APP_NAME} ${moment().format("YYYY")}.`}
       </Typography>
     </footer>
   );

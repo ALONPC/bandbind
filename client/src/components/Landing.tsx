@@ -1,11 +1,23 @@
-import React, { useState, useEffect } from "react";
-import { Typography, makeStyles, Grid, Paper } from "@material-ui/core";
+import React, { useState, useEffect, FunctionComponent } from "react";
+// import { makeStyles } from "@material-ui/core";
+
+import {
+  Typography,
+  makeStyles,
+  Grid,
+  Paper,
+  Card,
+  CardHeader,
+  CardContent,
+} from "@material-ui/core";
 import { IArtist } from "../../@types/artist";
+import { EventCard } from "./EventCard";
 
 const useStyles = makeStyles((theme) => ({
-  bg: {
+  background: {
     flexGrow: 1,
 
+    padding: theme.spacing(10),
     backgroundImage: `url('https://wallpaperboat.com/wp-content/uploads/2019/12/concert-23.jpg')`,
     backgroundSize: "cover",
     overflow: "hidden",
@@ -17,6 +29,7 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "center",
     color: theme.palette.text.secondary,
   },
+  artistsWrapper: {},
   artistMosaic: {
     root: {
       display: "flex",
@@ -34,12 +47,11 @@ export const Landing = () => {
   const classes = useStyles();
 
   const [artists, setArtists] = useState<IArtist[]>([]);
-  console.log("Landing -> artists", artists);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     getArtists();
-    return () => console.log("EventCard -> artists", artists);
+    return () => console.log("EventMosaic -> artists", artists);
   }, []);
 
   const getArtists = async () => {
@@ -53,26 +65,57 @@ export const Landing = () => {
         setLoading(false);
       });
     console.log("getArtists -> artists", artists);
-    setArtists(artists.slice(0, 6));
+    setArtists(artists);
   };
 
+  const data = [
+    { quarter: 1, earnings: 13000 },
+    { quarter: 2, earnings: 16500 },
+    { quarter: 3, earnings: 14250 },
+    { quarter: 4, earnings: 19000 },
+  ];
+
   return (
-    <div className={classes.bg}>
-      {/* <Grid container direction="row" justify="center" alignItems="center">
-        <Grid item direction="column">
-          <Typography variant="h3">BE ALWAYS ON THE FRONT ROW</Typography>
+    <div className={classes.background}>
+      <Grid container direction="row">
+        <Grid
+          container
+          spacing={1}
+          direction="row"
+          justify="flex-start"
+          alignItems="flex-start">
+          <Grid item>
+            <Typography variant="h4">Be in the front line</Typography>
+          </Grid>
         </Grid>
-        <Grid item direction="column" className={classes.artistMosaic}>
-          <Grid
-            container
-            spacing={3}
-            direction="row"
-            justify="center"
-            alignItems="center">
+        <Grid
+          container
+          spacing={1}
+          direction="row"
+          justify="flex-start"
+          alignItems="flex-start">
+          {artists.slice(0, 8).map((artist) => (
+            <Grid item xs={12} sm={6} md={3} key={artist.id}>
+              <EventCard artist={artist} isLanding={true}></EventCard>
+            </Grid>
+          ))}
+        </Grid>
+      </Grid>
+
+      {/* <Grid container direction="row" justify="center" alignItems="center"> */}
+
+      {/* <Grid container>
+        <Grid container>
+          <Grid item>
+            <Typography variant="h2">Be on the front row, always!</Typography>
+          </Grid>
+        </Grid>
+        <Grid container>
+          <Grid item xs={12}>
             {artists.map((artist) => (
-              <Paper elevation={3}>
-                <img src={artist.imageUrl} />
-              </Paper>
+              <Grid item>
+                <EventCard artist={artist} isLanding={true}></EventCard>
+              </Grid>
             ))}
           </Grid>
         </Grid>
