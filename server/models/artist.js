@@ -18,6 +18,8 @@ const eventSchema = new mongoose.Schema({
 const artistSchema = new mongoose.Schema({
   name: {
     type: String,
+    unique: true,
+    required: true,
   },
   genres: [
     {
@@ -26,6 +28,7 @@ const artistSchema = new mongoose.Schema({
   ],
   imageUrl: {
     type: String,
+    required: true,
   },
   url: {
     type: String,

@@ -1,3 +1,33 @@
+db.users.insert([
+  {
+    name: "admin",
+    email: "admin@bandbind.dev",
+    hashedPassword: "s0aZ+4rva5GFKcAupYkBXEvP9e0=",
+    role: "ADMIN",
+    subscription: {},
+  },
+  {
+    name: "user",
+    email: "user@bandbind.dev",
+    hashedPassword: "m4om5FDgm7NlMXtZjgQbl1cVjhI=",
+    role: "USER",
+    subscription: {
+      plan: "MONTHLY",
+      active: true,
+    },
+  },
+  {
+    name: "user2",
+    email: "user2@bandbind.dev",
+    hashedPassword: "0tvqw39VQNSkdXIlgPTYxwjU6JQ=",
+    role: "USER",
+    subscription: {
+      plan: null,
+      active: false,
+    },
+  },
+]);
+
 db.artists.insert([
   {
     name: "Powerwolf",
