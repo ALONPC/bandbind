@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useContext, createContext } from "react";
 import { CssBaseline } from "@material-ui/core";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 import { Header } from "./components/Layout/Header";
 import { Content } from "./components/Layout/Content";
 import { Footer } from "./components/Layout/Footer";
-import { BrowserRouter, Route } from "react-router-dom";
+import { BrowserRouter, Route, Redirect } from "react-router-dom";
 import { Landing } from "./components/Landing";
+import AuthProvider from "./utils/AuthContext";
+import { User } from "./components/User";
 
 const theme = createMuiTheme({
   typography: {
@@ -24,23 +26,21 @@ const theme = createMuiTheme({
     },
   },
 });
-console.log("theme", theme);
 
 const App = () => (
-  <BrowserRouter>
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <Header></Header>
-      <Content>
-        <Route path="/" exact component={Landing}></Route>
-        {/* <Route path="/login" exact component={LoginForm}></Route> */}
-        {/* <Route path="/checkout" component={Checkout}></Route>
-        <Route path="/amiibo/:id" component={AmiiboDetail}></Route> */}
-        {/* <EventCard></EventCard> */}
-      </Content>
-      <Footer></Footer>
-    </ThemeProvider>
-  </BrowserRouter>
+  <AuthProvider>
+    <BrowserRouter>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <Header></Header>
+        <Content>
+          <Route path="/" exact component={Landing}></Route>
+          <Route path="/user" exact component={User}></Route>
+        </Content>
+        <Footer></Footer>
+      </ThemeProvider>
+    </BrowserRouter>
+  </AuthProvider>
 );
 
 export default App;

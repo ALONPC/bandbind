@@ -1,14 +1,17 @@
-import { API } from "../config";
+import {
+  API
+} from "../utils/contants";
+
 
 export const register = (user) => {
   return fetch(`${API}/register`, {
-    method: "POST",
-    headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(user),
-  })
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(user),
+    })
     .then((response) => {
       return response.json();
     })
@@ -17,17 +20,17 @@ export const register = (user) => {
     });
 };
 
-export const login = (user) => {
-  return fetch(`${API}/login`, {
-    method: "POST",
-    headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(user),
-  })
-    .then((response) => {
-      return response.json();
+export const login = async (user) => {
+  return await fetch(`${API}/login`, {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(user),
+    })
+    .then((res) => {
+      return res.json();
     })
     .catch((err) => {
       console.log(err);
@@ -46,8 +49,8 @@ export const logout = (next) => {
     localStorage.removeItem("jwt");
     next();
     return fetch(`${API}/logout`, {
-      method: "GET",
-    })
+        method: "GET",
+      })
       .then((response) => {
         console.log("logout", response);
       })

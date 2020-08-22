@@ -1,7 +1,7 @@
 import React from "react";
 import { makeStyles, Typography } from "@material-ui/core";
 import moment from "moment";
-import { APP_NAME } from "../../contants";
+import { APP_NAME } from "../../utils/contants";
 
 export const Footer = () => {
   const useStyles = makeStyles((theme) => ({

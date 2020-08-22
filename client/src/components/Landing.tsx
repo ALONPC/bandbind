@@ -4,6 +4,7 @@ import { Typography, makeStyles, Grid, Box } from "@material-ui/core";
 import { IArtist } from "../../@types/artist";
 import { ArtistCard } from "./ArtistCard";
 import _ from "lodash";
+import { Redirect } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   background: {
