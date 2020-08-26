@@ -26,6 +26,13 @@ module.exports = {
   },
   rules: {
     "linebreak-style": "off",
+    "react/self-closing-comp": [
+      "error",
+      {
+        component: true,
+        html: false,
+      },
+    ],
     "prettier/prettier": [
       "error",
       {

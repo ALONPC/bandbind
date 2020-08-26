@@ -52,7 +52,7 @@ type Props = {
 export const ArtistCard: FunctionComponent<Props> = ({ artist, isLanding }) => {
   const classes = useStyles();
   const { events } = artist;
-  const hasEvents = !!events.length;
+  // const hasEvents = !!events.length;
   return isLanding ? (
     <Card key={artist._id} className={classes.card}>
       <CardActionArea>
@@ -68,10 +68,10 @@ export const ArtistCard: FunctionComponent<Props> = ({ artist, isLanding }) => {
       <CardActionArea>
         <CardHeader
           title={artist.name}
-          subheader={
-            (hasEvents && moment(artist.events[0].date).format("DD/MM/YYYY")) ||
-            "(No scheduled events)"
-          }
+          // subheader={
+          //   (hasEvents && moment(artist.events[0].date).format("DD/MM/YYYY")) ||
+          //   "(No scheduled events)"
+          // }
         />
         <CardMedia
           className={classes.media}
@@ -80,13 +80,13 @@ export const ArtistCard: FunctionComponent<Props> = ({ artist, isLanding }) => {
         />
         <CardContent className={classes.cardContent}>
           <div className={classes.chipWrapper}>
-            {artist.genres.slice(0, 2).map((genre, index) => (
+            {/* {artist.genres.slice(0, 2).map((genre, index) => (
               <Chip
                 key={index}
                 size="small"
                 label={<Typography variant="h6">{genre}</Typography>}
               />
-            ))}
+            ))} */}
           </div>
         </CardContent>
       </CardActionArea>

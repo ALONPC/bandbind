@@ -6,12 +6,14 @@ import {
   Button,
   IconButton,
   Grid,
+  Divider,
 } from "@material-ui/core";
 import Album from "@material-ui/icons/Album";
 import { APP_NAME } from "../../utils/contants";
 import { LoginDialog } from "../LoginDialog";
 import { authContext } from "../../utils/AuthContext";
 import { NavLink, useHistory } from "react-router-dom";
+import { SearchBar } from "../SearchBar";
 
 const useStyles = makeStyles((theme) => ({}));
 
@@ -36,6 +38,7 @@ export const Header = () => {
     <header>
       <Toolbar>
         <Grid
+          lg={8}
           container
           style={{
             display: "flex",
@@ -57,15 +60,19 @@ export const Header = () => {
               <Typography variant="h6">{APP_NAME}</Typography>
             </NavLink>
           </Grid>
+          <Grid item style={{ marginLeft: 48 }}>
+            <SearchBar></SearchBar>
+          </Grid>
         </Grid>
-        <Grid
+        {/* <Grid
           container
           style={{
             display: "flex",
             justifyContent: "center",
-          }}></Grid>
+          }}></Grid> */}
         <Grid
           container
+          lg={4}
           style={{
             display: "flex",
             alignItems: "center",
@@ -74,7 +81,10 @@ export const Header = () => {
           }}>
           {user && isLoggedIn && (
             <Grid item>
-              <Typography variant="subtitle1">{`Welcome, ${user.auth.name}`}</Typography>
+              <>
+                <Typography variant="subtitle1">{`Welcome, ${user.auth.name}`}</Typography>
+                <Divider variant="fullWidth" orientation="vertical"></Divider>
+              </>
             </Grid>
           )}
           <Grid item style={{ marginLeft: 20 }}>

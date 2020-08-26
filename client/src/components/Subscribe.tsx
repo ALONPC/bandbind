@@ -10,6 +10,7 @@ import {
 } from "@material-ui/core";
 import { API } from "../utils/contants";
 import { ISubscription } from "../../@types/subscription";
+import { useParams } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   layout: {
@@ -26,6 +27,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export const Subscribe = () => {
+  const { id } = useParams();
+  console.log("Subscribe -> id", id);
   const [subscriptions, setSubscriptions] = useState<ISubscription[]>([]);
   const [loading, setLoading] = useState(false);
 
@@ -76,7 +79,7 @@ export const Subscribe = () => {
                       <Typography variant="h3">{sub.plan}</Typography>
                       {!!sub.discount && (
                         <Typography
-                          color="secondary"
+                          color="textSecondary"
                           variant="h5">{`(Save ${sub.discount}%)`}</Typography>
                       )}
 
@@ -89,10 +92,13 @@ export const Subscribe = () => {
                       {!!sub.discount && (
                         <Typography
                           display="inline"
+                          color="textSecondary"
                           style={{ textDecoration: "line-through" }}
                           variant="h5">{`$${sub.price}`}</Typography>
                       )}
-                      <Typography variant="h6">{sub.description}</Typography>
+                      <Typography style={{ marginTop: 10 }} variant="h6">
+                        {sub.description}
+                      </Typography>
                       <br></br>
                       <Button variant="outlined" color="secondary">
                         <Typography variant="h4">Start now!</Typography>

@@ -34,7 +34,7 @@ export const Landing = () => {
 
   useEffect(() => {
     getArtists();
-    return () => console.log("EventMosaic -> artists", artists);
+    return () => console.log("artists", artists);
   }, []);
 
   const getArtists = async () => {

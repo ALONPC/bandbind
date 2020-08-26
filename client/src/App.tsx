@@ -9,6 +9,7 @@ import { Landing } from "./components/Landing";
 import AuthProvider from "./utils/AuthContext";
 import { User } from "./components/User";
 import { Subscribe } from "./components/Subscribe";
+import { EventMosaic } from "./components/EventMosaic";
 
 const theme = createMuiTheme({
   typography: {
@@ -20,7 +21,8 @@ const theme = createMuiTheme({
       main: "#eee",
     },
     secondary: {
-      main: "#c80f1e",
+      // main: "#c80f1e",
+      main: "#f7a614",
     },
     background: {
       paper: "#333",
@@ -32,18 +34,22 @@ const theme = createMuiTheme({
 
 const App = () => (
   <AuthProvider>
-    <BrowserRouter>
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <BrowserRouter>
         <Header></Header>
         <Content>
-          <Route path="/" exact component={Landing}></Route>
-          <Route path="/user" exact component={User}></Route>
-          <Route path="/subscribe" exact component={Subscribe}></Route>
+          <Route exact path="/" component={Landing}></Route>
+          <Route exact path="/user" component={User}></Route>
+          <Route exact path="/subscribe" component={Subscribe}></Route>
+          <Route
+            exact
+            path="/artist/:searchValue"
+            component={EventMosaic}></Route>
         </Content>
         <Footer></Footer>
-      </ThemeProvider>
-    </BrowserRouter>
+      </BrowserRouter>
+    </ThemeProvider>
   </AuthProvider>
 );
 
