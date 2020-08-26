@@ -1,34 +1,22 @@
 import React, { useState } from "react";
-import { IUserAuth } from "../../@types/user";
+import { IUser } from "../../@types/user";
 import { DEFAULT_USER_AUTH, API } from "./contants";
+import { logout } from "../auth";
 
-const useAuthHandler = (initialState: IUserAuth) => {
+const useAuthHandler = (initialState: IUser) => {
   const [auth, setAuth] = useState(initialState);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  const setAuthStatus = (userAuth: IUserAuth) => {
+  const setAuthStatus = (userAuth: IUser) => {
     window.localStorage.setItem("UserAuth", JSON.stringify(userAuth));
     setAuth(userAuth);
-    setIsLoggedIn(true);
   };
   const setUnauthStatus = async () => {
     window.localStorage.clear();
     setAuth(DEFAULT_USER_AUTH);
-    const response = await fetch(`${API}/logout`, {
-      method: "GET",
-    })
-      .then((res) => {
-        console.log("logout", res);
-        setIsLoggedIn(false);
-        return res.json();
-      })
-      .catch((err) => console.log(err));
-    console.log("setUnauthStatus -> response", response);
-    return response;
+    return await logout();
   };
   return {
     auth,
-    isLoggedIn,
     setAuthStatus,
     setUnauthStatus,
   };

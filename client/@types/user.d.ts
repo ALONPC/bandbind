@@ -6,8 +6,9 @@ export type IUserAuth = {
 };
 
 export interface IUser {
+  id?: string;
   email: string;
-  password: string;
+  password?: string;
   name?: string;
   hashedPassword?: string;
   role?: eRole;

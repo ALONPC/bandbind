@@ -20,34 +20,55 @@ const register = async ({ body: userData }, res) => {
 };
 
 const login = async ({ body: { email, password } }, res) => {
-  await User.findOne({ email }, (err, user) => {
-    console.log("login -> user", user);
-    if (err || !user) {
-      return res.status(400).json({
-        error: "User is not registered, please register",
+  await User.findOne(
+    {
+      email,
+    },
+    (err, user) => {
+      console.log("login -> user", user);
+      if (err || !user) {
+        return res.status(400).json({
+          error: "User is not registered, please register",
+        });
+      }
+      const authenticated = user.authenticate(password);
+      console.log("login -> authenticated", authenticated);
+      if (!authenticated) {
+        return res.status(401).json({
+          error: "User password mismatch",
+        });
+      }
+      const token = jwt.sign(
+        {
+          _id: user._id,
+        },
+        process.env.SECRET
+      );
+      const inTwoDays = moment(moment().add("2", "days")).toDate();
+      res.cookie("token", token, {
+        expire: inTwoDays,
+      });
+      const { _id, name, email, role, subscription } = user;
+      return res.json({
+        token,
+        message: "Login successful! Enjoy",
+        user: {
+          id: _id,
+          email,
+          name,
+          role,
+          subscription,
+        },
       });
     }
-    const authenticated = user.authenticate(password);
-    if (!authenticated) {
-      return res.status(401).json({
-        error: "User password mismatch",
-      });
-    }
-    const token = jwt.sign({ _id: user._id }, process.env.SECRET);
-    const inTwoDays = moment(moment().add("2", "days")).toDate();
-    res.cookie("token", token, { expire: inTwoDays });
-    const { _id, name, email, role, subscription } = user;
-    return res.json({
-      token,
-      message: "Login successful! Enjoy",
-      user: { _id, email, name, role, subscription },
-    });
-  });
+  );
 };
 
 const logout = (_, res) => {
   res.clearCookie("token");
-  res.json({ message: "Logout successfully! See you around" });
+  res.json({
+    message: "Logout successfully! See you around",
+  });
 };
 
 const requireLogin = expressJwt({

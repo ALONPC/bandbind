@@ -89,7 +89,7 @@ export const EventMosaic = () => {
             const { events } = artist;
             const hasEvents = !!events.length;
             return (
-              <Grid key={artist.id} container item xl={2} xs={6} spacing={3}>
+              <Grid key={artist._id} container item xl={2} xs={6} spacing={3}>
                 {/* <Fade in={!loading}> */}
                 {/* <div
                     className={

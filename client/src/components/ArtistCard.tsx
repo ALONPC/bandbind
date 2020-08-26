@@ -54,7 +54,7 @@ export const ArtistCard: FunctionComponent<Props> = ({ artist, isLanding }) => {
   const { events } = artist;
   const hasEvents = !!events.length;
   return isLanding ? (
-    <Card key={artist.id} className={classes.card}>
+    <Card key={artist._id} className={classes.card}>
       <CardActionArea>
         <CardMedia
           className={classes.media}
@@ -64,7 +64,7 @@ export const ArtistCard: FunctionComponent<Props> = ({ artist, isLanding }) => {
       </CardActionArea>
     </Card>
   ) : (
-    <Card key={artist.id} className={classes.card} raised={true}>
+    <Card key={artist._id} className={classes.card} raised={true}>
       <CardActionArea>
         <CardHeader
           title={artist.name}

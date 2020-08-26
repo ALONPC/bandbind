@@ -1,6 +1,10 @@
 export interface ISubscription {
   plan: ePlan;
-  active: boolean;
+  price: number;
+  currency: string;
+  discount: number;
+  description: string;
+  active?: boolean;
 }
 
 enum ePlan {

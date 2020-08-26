@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 
-import { Typography, makeStyles, Grid, Box } from "@material-ui/core";
+import { Typography, makeStyles, Grid, Box, Button } from "@material-ui/core";
 import { IArtist } from "../../@types/artist";
 import { ArtistCard } from "./ArtistCard";
 import _ from "lodash";
-import { Redirect } from "react-router-dom";
+import { authContext } from "../utils/AuthContext";
+import { NavLink } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   background: {
@@ -12,13 +13,13 @@ const useStyles = makeStyles((theme) => ({
     backgroundSize: "auto",
     backgroundRepeat: "no-repeat",
     overflow: "hidden",
+    backgroundColor: "#000000",
   },
   content: {
-    margin: theme.spacing(10),
+    margin: theme.spacing(6),
   },
   contentText: {
-    textAlign: "center",
-    margin: theme.spacing(3),
+    margin: theme.spacing(1),
     fontWeight: 600,
   },
 }));
@@ -28,6 +29,8 @@ export const Landing = () => {
 
   const [artists, setArtists] = useState<IArtist[]>([]);
   const [loading, setLoading] = useState(false);
+
+  const { auth } = useContext(authContext);
 
   useEffect(() => {
     getArtists();
@@ -51,16 +54,46 @@ export const Landing = () => {
   return (
     <div className={classes.background}>
       <Box className={classes.content}>
-        <Typography variant="h2" className={classes.contentText}>
-          Watch thousands of bands live!
-        </Typography>
-        <Typography variant="h4" className={classes.contentText}>
-          Be on the front row, always 🤘
-        </Typography>
-        <Grid container direction="row" justify="center" alignItems="center">
+        <Grid
+          container
+          direction="column"
+          justify="center"
+          alignContent="center"
+          alignItems="center"
+          spacing={4}>
+          <Grid item>
+            <Typography className={classes.contentText} variant="h2">
+              Watch thousands of bands live!
+            </Typography>
+          </Grid>
+          <Grid item>
+            <Typography variant="h4">Be on the front row, always 🤘</Typography>
+          </Grid>
+          <Grid item>
+            <NavLink
+              to="/subscribe"
+              style={{
+                color: "inherit",
+                textDecoration: "inherit",
+              }}>
+              <Button variant="outlined" color="primary" size="large">
+                <Typography className={classes.contentText} variant="h4">
+                  Subscribe now!
+                </Typography>
+              </Button>
+            </NavLink>
+          </Grid>
+        </Grid>
+
+        <Grid
+          style={{ marginTop: 24 }}
+          container
+          direction="row"
+          justify="center"
+          alignItems="center">
           {!loading &&
             artists.map((artist) => (
-              <Grid item lg={2} md={4} sm={6}>
+              <Grid key={artist._id} item lg={2} md={4} sm={6}>
                 <ArtistCard isLanding={true} artist={artist}></ArtistCard>
               </Grid>
             ))}

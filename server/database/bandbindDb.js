@@ -28,6 +28,30 @@ db.users.insert([
   },
 ]);
 
+db.subscriptions.insert([
+  {
+    plan: "MONTHLY",
+    price: 10,
+    currency: "USD",
+    discount: 10,
+    description: "Full access within the month",
+  },
+  {
+    plan: "YEARLY",
+    price: 100,
+    currency: "USD",
+    discount: 20,
+    description: "Access to backstage footage and merchandising discounts",
+  },
+  {
+    plan: "4LIFE",
+    price: 1000,
+    currency: "USD",
+    discount: 0,
+    description: "Literally access for life",
+  },
+]);
+
 db.artists.insert([
   {
     name: "Powerwolf",

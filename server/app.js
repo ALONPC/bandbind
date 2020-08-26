@@ -8,6 +8,7 @@ const cors = require("cors");
 
 const artistsRoutes = require("./routes/artist");
 const authRoutes = require("./routes/auth");
+const subscriptionRoutes = require("./routes/subscription");
 
 // Connection DB
 mongoose
@@ -24,6 +25,7 @@ app.use(express.json());
 // Routing
 app.use("/api", artistsRoutes);
 app.use("/api", authRoutes);
+app.use("/api", subscriptionRoutes);
 
 const port = process.env.PORT || 8080;
 

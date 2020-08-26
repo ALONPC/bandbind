@@ -19,7 +19,7 @@ export const AlertMessage: React.FunctionComponent<Props> = ({
 }) => {
   return (
     <Snackbar
-      anchorOrigin={{ vertical: "top", horizontal: "center" }}
+      anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
       autoHideDuration={duration}
       open={open}
       onClose={handleClose}>

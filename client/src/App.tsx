@@ -8,6 +8,7 @@ import { BrowserRouter, Route, Redirect } from "react-router-dom";
 import { Landing } from "./components/Landing";
 import AuthProvider from "./utils/AuthContext";
 import { User } from "./components/User";
+import { Subscribe } from "./components/Subscribe";
 
 const theme = createMuiTheme({
   typography: {
@@ -16,13 +17,15 @@ const theme = createMuiTheme({
   palette: {
     type: "dark",
     primary: {
-      main: "#fff",
+      main: "#eee",
     },
     secondary: {
       main: "#c80f1e",
     },
     background: {
-      default: "black",
+      paper: "#333",
+      // default: "#000000",
+      default: "#181818",
     },
   },
 });
@@ -36,6 +39,7 @@ const App = () => (
         <Content>
           <Route path="/" exact component={Landing}></Route>
           <Route path="/user" exact component={User}></Route>
+          <Route path="/subscribe" exact component={Subscribe}></Route>
         </Content>
         <Footer></Footer>
       </ThemeProvider>

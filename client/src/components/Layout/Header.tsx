@@ -13,11 +13,7 @@ import { LoginDialog } from "../LoginDialog";
 import { authContext } from "../../utils/AuthContext";
 import { NavLink, useHistory } from "react-router-dom";
 
-const useStyles = makeStyles((theme) => ({
-  menuButton: {
-    marginRight: theme.spacing(2),
-  },
-}));
+const useStyles = makeStyles((theme) => ({}));
 
 export const Header = () => {
   const classes = useStyles();
@@ -28,8 +24,8 @@ export const Header = () => {
   const history = useHistory();
 
   const user = useContext(authContext);
-  const { isLoggedIn } = user;
   console.log("Header -> user", user);
+  const isLoggedIn = user.auth.email && user.auth.id;
 
   const handleLogout = () => {
     user.setUnauthStatus();
@@ -39,17 +35,18 @@ export const Header = () => {
   return (
     <header>
       <Toolbar>
-        <IconButton edge="start" className={classes.menuButton} color="inherit">
-          <Album />
-        </IconButton>
         <Grid
           container
           style={{
             display: "flex",
             alignItems: "center",
             alignContent: "center",
-            justifyContent: "space-between",
           }}>
+          <Grid item>
+            <IconButton edge="start" color="inherit">
+              <Album />
+            </IconButton>
+          </Grid>
           <Grid item>
             <NavLink
               style={{
@@ -60,18 +57,36 @@ export const Header = () => {
               <Typography variant="h6">{APP_NAME}</Typography>
             </NavLink>
           </Grid>
+        </Grid>
+        <Grid
+          container
+          style={{
+            display: "flex",
+            justifyContent: "center",
+          }}></Grid>
+        <Grid
+          container
+          style={{
+            display: "flex",
+            alignItems: "center",
+            alignContent: "center",
+            justifyContent: "flex-end",
+          }}>
           {user && isLoggedIn && (
             <Grid item>
-              <Typography variant="subtitle1">{`Welcome, ${user.auth.email}`}</Typography>
+              <Typography variant="subtitle1">{`Welcome, ${user.auth.name}`}</Typography>
             </Grid>
           )}
-          <Grid item>
+          <Grid item style={{ marginLeft: 20 }}>
             {user && isLoggedIn ? (
-              <Button onClick={() => handleLogout()} color="inherit">
+              <Button
+                onClick={() => handleLogout()}
+                variant="outlined"
+                color="secondary">
                 Logout
               </Button>
             ) : (
-              <Button onClick={handleOpen} color="inherit">
+              <Button onClick={handleOpen} variant="outlined" color="primary">
                 Login
               </Button>
             )}

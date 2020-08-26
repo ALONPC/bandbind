@@ -44,11 +44,9 @@ export const LoginDialog: React.FunctionComponent<Props> = ({
   const auth = React.useContext(authContext);
 
   const redirectUser = (user: any) => {
-    console.log("redirectUser -> user", user);
     if (user && user.role === "ADMIN") {
       history.push("/admin");
     } else {
-      console.log("to user");
       history.push("/user");
     }
   };
@@ -62,7 +60,7 @@ export const LoginDialog: React.FunctionComponent<Props> = ({
         user,
         user: { id, email },
       } = response;
-      auth.setAuthStatus({ id, email });
+      auth.setAuthStatus(user);
       handleClose();
       setLoading(false);
       setAlertState({ open: true, message });
@@ -86,7 +84,6 @@ export const LoginDialog: React.FunctionComponent<Props> = ({
       // alert(JSON.stringify(values, null, 2));
     },
   });
-  console.log("formik", formik);
 
   const handleCloseAlert = () => {
     setAlertState({ open: false });

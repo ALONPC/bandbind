@@ -1,17 +1,14 @@
-import {
-  API
-} from "../utils/contants";
-
+import { API } from "../utils/contants";
 
 export const register = (user) => {
   return fetch(`${API}/register`, {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(user),
-    })
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(user),
+  })
     .then((response) => {
       return response.json();
     })
@@ -22,16 +19,14 @@ export const register = (user) => {
 
 export const login = async (user) => {
   return await fetch(`${API}/login`, {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(user),
-    })
-    .then((res) => {
-      return res.json();
-    })
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(user),
+  })
+    .then((res) => res.json())
     .catch((err) => {
       console.log(err);
     });
@@ -44,18 +39,15 @@ export const authenticate = (data, next) => {
   }
 };
 
-export const logout = (next) => {
-  if (typeof window !== "undefined") {
-    localStorage.removeItem("jwt");
-    next();
-    return fetch(`${API}/logout`, {
-        method: "GET",
-      })
-      .then((response) => {
-        console.log("logout", response);
-      })
-      .catch((err) => console.log(err));
-  }
+export const logout = async () => {
+  localStorage.removeItem("jwt");
+  return await fetch(`${API}/logout`, {
+    method: "GET",
+  })
+    .then((response) => {
+      console.log("logout", response);
+    })
+    .catch((err) => console.log(err));
 };
 
 export const isAuthenticated = () => {

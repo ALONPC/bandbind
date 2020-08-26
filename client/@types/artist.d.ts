@@ -1,7 +1,7 @@
 import { IEvent } from "./event";
 
 export interface IArtist {
-  id: string;
+  _id: string;
   name: string;
   genres: Array<string>;
   imageUrl: string;
