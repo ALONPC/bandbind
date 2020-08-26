@@ -6,7 +6,12 @@ const all = async (req, res) => {
 };
 
 const find = async (req, res) => {
+  // const artist = await Artist.findOne({
+  //   name: { $regex: `^${req.params.searchValue}$`, $options: "i" },
+  // });
+  console.log("find -> req.params", req.params);
   const artist = await Artist.findOne({ name: req.params.name });
+  console.log("find -> artist", artist.name);
   res.json(artist);
 };
 

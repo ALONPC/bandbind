@@ -9,6 +9,7 @@ const {
 } = require("../controllers/artist");
 
 router.get("/artists", all);
+// router.get("/artist", find);
 router.get("/artist/:name", find);
 router.get("/artist/:name/events", getAllArtistEvents);
 router.get("/events", getAllEvents);
