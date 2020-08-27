@@ -1,11 +1,10 @@
-import React, { useState, useEffect, useContext } from "react";
-
+import React, { useState, useEffect } from "react";
 import { Typography, makeStyles, Grid, Box, Button } from "@material-ui/core";
-import { IArtist } from "../../@types/artist";
-import { ArtistCard } from "./ArtistCard";
-import _ from "lodash";
-import { authContext } from "../utils/AuthContext";
 import { NavLink } from "react-router-dom";
+import _ from "lodash";
+
+import { ArtistCard } from "./ArtistCard";
+import { IArtist } from "../../@types/artist";
 
 const useStyles = makeStyles((theme) => ({
   background: {
@@ -29,8 +28,6 @@ export const Landing = () => {
 
   const [artists, setArtists] = useState<IArtist[]>([]);
   const [loading, setLoading] = useState(false);
-
-  const { auth } = useContext(authContext);
 
   useEffect(() => {
     getArtists();

@@ -1,20 +1,5 @@
 import React, { useState, useEffect, FunctionComponent } from "react";
-import {
-  Typography,
-  Container,
-  Grid,
-  Card,
-  makeStyles,
-  CardActionArea,
-  CardMedia,
-  CardContent,
-  CardActions,
-  Button,
-  CircularProgress,
-  Fade,
-  Chip,
-  CardHeader,
-} from "@material-ui/core";
+import {makeStyles} from "@material-ui/core";
 import { IArtist } from "../../@types/artist";
 import moment from "moment";
 import { useParams } from "react-router-dom";
@@ -60,7 +45,7 @@ interface RouteParams {
   searchValue: string;
 }
 
-export const EventList: FunctionComponent<{}> = () => {
+export const ArtistInfo: FunctionComponent<{}> = () => {
   const params = useParams<RouteParams>();
   const [artist, setArtist] = useState<IArtist>({});
   const [loading, setLoading] = useState(false);
@@ -84,7 +69,7 @@ export const EventList: FunctionComponent<{}> = () => {
         setLoading(false);
       });
     console.log("getArtist -> artist", response[0]);
-    setArtist(response[0]);
+    setArtist(response);
   };
 
   const classes = useStyles();

@@ -1,31 +1,20 @@
 import React, { FunctionComponent } from "react";
 import {
-  Typography,
   Card,
   makeStyles,
   CardActionArea,
   CardMedia,
   CardContent,
-  Chip,
   CardHeader,
 } from "@material-ui/core";
 import { IArtist } from "../../@types/artist";
-import moment from "moment";
 
 const useStyles = makeStyles((theme) => ({
   card: {
     margin: theme.spacing(3),
-    // display: "flex",
-    // flexDirection: "column",
-    // alignItems: "center",
-    // justifyContent: "center",
   },
   cardContent: {
     background: "#3333",
-    // display: "flex",
-    // alignItems: "center",
-    // justifyContent: "center",
-    // flexDirection: "column",
   },
   media: {
     height: 260,
@@ -51,8 +40,6 @@ type Props = {
 
 export const ArtistCard: FunctionComponent<Props> = ({ artist, isLanding }) => {
   const classes = useStyles();
-  const { events } = artist;
-  // const hasEvents = !!events.length;
   return isLanding ? (
     <Card key={artist._id} className={classes.card}>
       <CardActionArea>
