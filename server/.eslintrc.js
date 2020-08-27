@@ -3,6 +3,7 @@ module.exports = {
     browser: true,
     commonjs: true,
     es2020: true,
+    mongodb: true,
   },
   extends: "eslint:recommended",
   parserOptions: {
