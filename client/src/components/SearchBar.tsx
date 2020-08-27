@@ -3,12 +3,12 @@ import {
   makeStyles,
   Paper,
   Divider,
+  Container, Grid,
   InputBase,
   IconButton,
   TextField,
 } from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
-import { Container, Grid } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
 import { useFormik } from "formik";
 
@@ -35,21 +35,6 @@ const useStyles = makeStyles((theme) => ({
 export const SearchBar = () => {
   const history = useHistory();
   const classes = useStyles();
-
-  const handleSearch = (e: any) => {
-    const searchValue = e.target.value;
-    console.log("handleSearch -> searchValue", searchValue);
-  };
-
-  const handleSubmit = (e: any) => {
-    // history.push({
-    //   pathname: "/artist",
-    //   // search: `?name=${searchValue}`,
-    //   search: "?name=Opeth",
-    //   state: "hello",
-    // });
-    // history.push(`/artist/${searchValue}`, { params: { searchValue } });
-  };
 
   const formik = useFormik({
     initialValues: {
@@ -80,6 +65,7 @@ export const SearchBar = () => {
             className={classes.input}
             autoFocus
             type="text"
+            placeholder="Search for artists..."
             fullWidth
             onChange={formik.handleChange}
             value={formik.values.searchValue}

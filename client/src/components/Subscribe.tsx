@@ -10,7 +10,6 @@ import {
 } from "@material-ui/core";
 import { API } from "../utils/contants";
 import { ISubscription } from "../../@types/subscription";
-import { useParams } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   layout: {
@@ -27,8 +26,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export const Subscribe = () => {
-  const { id } = useParams();
-  console.log("Subscribe -> id", id);
   const [subscriptions, setSubscriptions] = useState<ISubscription[]>([]);
   const [loading, setLoading] = useState(false);
 

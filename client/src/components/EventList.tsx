@@ -17,8 +17,7 @@ import {
 } from "@material-ui/core";
 import { IArtist } from "../../@types/artist";
 import moment from "moment";
-import * as queryString from "query-string";
-import { useHistory, useLocation, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   card: {
@@ -57,21 +56,23 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export const EventMosaic: FunctionComponent<{}> = () => {
-  const params = useParams<any>();
-  console.log("EventMosaic -> params ", params);
+interface RouteParams {
+  searchValue: string;
+}
 
+export const EventList: FunctionComponent<{}> = () => {
+  const params = useParams<RouteParams>();
   const [artist, setArtist] = useState<IArtist>({});
   const [loading, setLoading] = useState(false);
-
+  
   useEffect(() => {
     getArtist();
-    return () => console.log("Artist", artist);
-  }, []);
-
+  }, [params.searchValue]); // will re render if params change
+  
   const getArtist = async () => {
+    console.log("artist", artist)
     setLoading(true);
-    const artist = await fetch(
+    const response = await fetch(
       `http://localhost:8000/api/artist/${params.searchValue}`,
       {
         method: "GET",
@@ -82,16 +83,18 @@ export const EventMosaic: FunctionComponent<{}> = () => {
       .finally(() => {
         setLoading(false);
       });
-    console.log("getArtist -> artist", artist);
-    setArtist(artist);
+    console.log("getArtist -> artist", response[0]);
+    setArtist(response[0]);
   };
 
   const classes = useStyles();
-  const { events = [] } = artist;
+  console.log("artist", artist);
+  const events = artist?.events ?? [];
+  console.log("events", events);
   return (
     <>
       {!loading &&
-        events.map((event) => (
+        !!events.length && events.map((event) => (
           <>
             <h1>{event.title}</h1>
           </>
