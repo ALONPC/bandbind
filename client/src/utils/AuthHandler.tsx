@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { IUser } from "../../@types/user";
-import { DEFAULT_USER_AUTH, API } from "./contants";
+import { DEFAULT_USER_AUTH } from "./contants";
 import { logout } from "../auth";
 
 const useAuthHandler = (initialState: IUser) => {

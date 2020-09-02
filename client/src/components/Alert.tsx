@@ -5,8 +5,8 @@ import { Snackbar } from "@material-ui/core";
 type Props = {
   severity: string | any;
   duration: number;
-  message: string;
-  open: boolean;
+  message?: string;
+  open?: boolean;
   handleClose: () => void;
 };
 

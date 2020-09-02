@@ -27,8 +27,7 @@ type Props = {
 export const EventCard: FC<Props> = ({ imageUrl, event }) => {
   const classes = useStyles(event.status)();
   const { auth } = useContext(authContext);
-  const isLoggedIn = !auth.id?.length;
-  console.log("auth", auth);
+  const isLoggedIn = !!auth._id?.length;
   const splitDate = (date: Date) => {
     const day = moment(date).format("DD");
     const month = moment(date).format("MMMM");
@@ -41,7 +40,6 @@ export const EventCard: FC<Props> = ({ imageUrl, event }) => {
       hour,
     };
   };
-  console.log("!!auth.id?.length", !!auth.id?.length);
   const eventDate = splitDate(event.date);
   return (
     <Paper className={classes.paper}>
@@ -93,7 +91,7 @@ export const EventCard: FC<Props> = ({ imageUrl, event }) => {
           <Grid item>
             <Button
               size="large"
-              disabled={!event.status || isLoggedIn}
+              disabled={!event.status || !isLoggedIn}
               onClick={() => console.log("Notification sent!")}
               variant="outlined"
               color="secondary">

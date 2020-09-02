@@ -1,12 +1,12 @@
 import { ISubscription } from "./subscription";
 
 export type IUserAuth = {
-  id: string;
+  _id: string;
   email: string;
 };
 
 export interface IUser {
-  id?: string;
+  _id?: string;
   email: string;
   password?: string;
   name?: string;

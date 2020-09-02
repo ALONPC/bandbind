@@ -10,7 +10,9 @@ import {
   useTheme,
 } from "@material-ui/core";
 import { API } from "../utils/contants";
-import { ISubscription, IAlertState } from "../../@types/subscription";
+import { ISubscription } from "../../@types/subscription";
+import { IAlertState } from "../../@types/alertState";
+
 import { authContext } from "../utils/AuthContext";
 import { LoginDialog } from "./LoginDialog";
 import { AlertMessage } from "./Alert";
@@ -35,8 +37,8 @@ const useStyles = makeStyles((theme) => ({
 export const Subscribe = () => {
   const [subscriptions, setSubscriptions] = useState<ISubscription[]>([]);
   const [loading, setLoading] = useState(false);
-  const { auth } = useContext(authContext);
-  const isLoggedIn = auth.email && auth.id;
+  const { auth, setAuthStatus } = useContext(authContext);
+  const isLoggedIn = !!auth.email && !!auth._id;
 
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
@@ -50,26 +52,32 @@ export const Subscribe = () => {
     message: "",
   });
 
-  const upgradePlan = async (sub) => {
-    console.log("upgradePlan -> sub", sub);
-    console.log("Upgraded plan!");
-    // setLoading(true);
-    // const response = await fetch(`${API}/upgradePlan`, {
-    //   method: "POST",
-    //   headers: {
-    //     Accept: "application/json",
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify(user),
-    // })
-    //   .then((res) => {
-    //     return res.json();
-    //   })
-    //   .catch((err) => console.log(err));
-    // console.log("upgradePlan -> response", response);
-    // const { message } = response;
-    // setAlertState({ open: true, message });
-    // setLoading(false);
+  const upgradeSubscription = async (planToSubscribe: ISubscription) => {
+    setLoading(true);
+    if (!isLoggedIn) {
+      handleOpen();
+    } else {
+      const { _id } = auth;
+      const response = await fetch(`${API}/upgradeSubscription`, {
+        method: "PATCH",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          _id,
+          plan: planToSubscribe.plan,
+        }),
+      })
+        .then((res) => {
+          return res.json();
+        })
+        .catch((err) => console.log(err));
+      const { message, updatedUserWithSubscription } = response;
+      setAuthStatus(updatedUserWithSubscription);
+      setAlertState({ open: true, message });
+      setLoading(false);
+    }
   };
 
   useEffect(() => {
@@ -83,7 +91,6 @@ export const Subscribe = () => {
         return res.json();
       })
       .catch((err) => console.log(err));
-    console.log("getSubscriptions -> response", response);
     setSubscriptions(response);
     setLoading(false);
   };
@@ -93,15 +100,15 @@ export const Subscribe = () => {
 
   const applyDiscount = (subscription: ISubscription) => {
     const { discount, price } = subscription;
-    const finalPrice = price - price * (discount / 100);
-    console.log("applyDiscount -> finalPrice", finalPrice);
-    return finalPrice;
+    return price - price * (discount / 100);
   };
 
   return (
     <div style={{ ...theme.custom.layout }}>
       <Container maxWidth="lg">
-        <Typography variant="h4">It's 🤘🤘🤘 time and you know it</Typography>
+        <Typography variant="h4">
+          It's time to headbang and you know it...
+        </Typography>
         <Grid
           container
           style={{ marginTop: 24 }}
@@ -114,7 +121,7 @@ export const Subscribe = () => {
               const withDiscount = applyDiscount(sub);
               const isPurchased = sub.plan === auth?.subscription?.plan;
               return (
-                <Grid item>
+                <Grid key={sub._id} item>
                   <Card
                     className={
                       isPurchased
@@ -150,7 +157,7 @@ export const Subscribe = () => {
                         <Typography variant="h4">PURCHASED!</Typography>
                       ) : (
                         <Button
-                          onClick={!isLoggedIn ? handleOpen : upgradePlan(sub)}
+                          onClick={() => upgradeSubscription(sub)}
                           variant="outlined"
                           color="secondary">
                           <Typography variant="h4">Upgrade</Typography>

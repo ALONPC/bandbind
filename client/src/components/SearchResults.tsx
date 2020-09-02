@@ -49,9 +49,7 @@ export const SearchResults: FunctionComponent<{}> = () => {
   };
 
   const classes = useStyles();
-  console.log("artist", artist);
   const events = artist?.events ?? [];
-  console.log("events", events);
   return (
     <div style={{ ...theme.custom.layout }}>
       <Typography variant="h4">{`Upcoming events for "${params.searchValue}"...`}</Typography>

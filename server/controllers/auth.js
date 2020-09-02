@@ -54,7 +54,7 @@ const login = async ({ body: { email, password } }, res) => {
         token,
         message: "Login successful! Enjoy",
         user: {
-          id: _id,
+          _id,
           email,
           name,
           role,

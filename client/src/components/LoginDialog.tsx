@@ -1,4 +1,4 @@
-import React, { useState, createContext, useContext } from "react";
+import React, { useState } from "react";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import Dialog from "@material-ui/core/Dialog";
@@ -10,7 +10,7 @@ import { useFormik } from "formik";
 import { IUser } from "../../@types/user";
 
 import { AlertMessage } from "./Alert";
-import { Redirect, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { login } from "../auth";
 import { authContext } from "../utils/AuthContext";
 
@@ -58,7 +58,7 @@ export const LoginDialog: React.FunctionComponent<Props> = ({
       const {
         message,
         user,
-        user: { id, email },
+        // user: { _id, email },
       } = response;
       auth.setAuthStatus(user);
       handleClose();

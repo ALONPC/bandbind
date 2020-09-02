@@ -44,7 +44,6 @@ export const Landing = () => {
       .finally(() => {
         setLoading(false);
       });
-    console.log("getArtists -> artists", artists);
     setArtists(_.shuffle(artists));
   };
 

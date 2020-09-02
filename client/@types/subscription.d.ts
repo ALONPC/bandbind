@@ -1,5 +1,6 @@
 export interface ISubscription {
-  plan: ePlan;
+  _id: string;
+  plan?: ePlan;
   price: number;
   currency: string;
   discount: number;

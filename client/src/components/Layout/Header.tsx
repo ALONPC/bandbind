@@ -1,5 +1,4 @@
 import React, { useState, useContext } from "react";
-import { makeStyles } from "@material-ui/core/styles";
 import {
   Toolbar,
   Typography,
@@ -15,11 +14,7 @@ import { authContext } from "../../utils/AuthContext";
 import { NavLink, useHistory } from "react-router-dom";
 import { SearchBar } from "../SearchBar";
 
-const useStyles = makeStyles((theme) => ({}));
-
 export const Header = () => {
-  const classes = useStyles();
-
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -27,7 +22,8 @@ export const Header = () => {
 
   const user = useContext(authContext);
   console.log("Header -> user", user);
-  const isLoggedIn = user.auth.email && user.auth.id;
+  const isLoggedIn = !!user.auth.email && !!user.auth._id;
+  console.log("Header -> isLoggedIn", isLoggedIn);
 
   const handleLogout = () => {
     user.setUnauthStatus();
@@ -59,19 +55,15 @@ export const Header = () => {
               <Typography variant="h6">{APP_NAME}</Typography>
             </NavLink>
           </Grid>
-          <Grid style={{ marginLeft: 48 }}>
+          <Grid item lg={4} style={{ marginLeft: 48 }}>
             <SearchBar></SearchBar>
           </Grid>
         </Grid>
         <Grid
           container
-          lg={4}
-          style={{
-            display: "flex",
-            alignItems: "center",
-            alignContent: "center",
-            justifyContent: "flex-end",
-          }}>
+          alignItems="center"
+          alignContent="center"
+          justify="flex-end">
           {user && isLoggedIn && (
             <Grid item>
               <>
