@@ -5,16 +5,18 @@ import moment, { Moment } from "moment";
 import AccessTime from "@material-ui/icons/AccessTime";
 import Place from "@material-ui/icons/Place";
 
-const useStyles = makeStyles((theme) => ({
-  paper: {
-    width: "100%",
-    padding: 24,
-  },
-  img: {
-    width: 100,
-    height: 100,
-  },
-}));
+const useStyles = (status: Boolean) =>
+  makeStyles((theme) => ({
+    paper: {
+      width: "100%",
+      padding: 24,
+      ...(status ? {} : { opacity: 0.4 }),
+    },
+    img: {
+      width: 100,
+      height: 100,
+    },
+  }));
 
 type Props = {
   imageUrl?: string | any;
@@ -22,7 +24,7 @@ type Props = {
 };
 
 export const EventCard: FC<Props> = ({ imageUrl, event }) => {
-  const classes = useStyles();
+  const classes = useStyles(event.status)();
   const splitDate = (date: Date) => {
     const day = moment(date).format("DD");
     const month = moment(date).format("MMMM");
