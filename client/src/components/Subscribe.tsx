@@ -7,15 +7,12 @@ import {
   makeStyles,
   Container,
   Button,
+  useTheme,
 } from "@material-ui/core";
 import { API } from "../utils/contants";
 import { ISubscription } from "../../@types/subscription";
 
 const useStyles = makeStyles((theme) => ({
-  layout: {
-    padding: 120,
-    backgroundColor: "#000000",
-  },
   card: {
     textAlign: "center",
     width: 400,
@@ -45,6 +42,8 @@ export const Subscribe = () => {
     setLoading(false);
   };
 
+  const theme = useTheme();
+  console.log("Subscribe -> theme", theme);
   const classes = useStyles();
 
   const applyDiscount = (subscription: ISubscription) => {
@@ -55,7 +54,7 @@ export const Subscribe = () => {
   };
 
   return (
-    <div className={classes.layout}>
+    <div style={{ ...theme.custom.layout }}>
       <Container maxWidth="lg">
         <Typography variant="h4">It's 🤘🤘🤘 time and you know it</Typography>
         <Grid

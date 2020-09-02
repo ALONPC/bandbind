@@ -1,10 +1,14 @@
-import React, { useContext, createContext } from "react";
+import React from "react";
 import { CssBaseline } from "@material-ui/core";
-import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
+import {
+  createMuiTheme,
+  MuiThemeProvider,
+  ThemeOptions,
+} from "@material-ui/core/styles";
 import { Header } from "./components/Layout/Header";
 import { Content } from "./components/Layout/Content";
 import { Footer } from "./components/Layout/Footer";
-import { BrowserRouter, Route, Redirect } from "react-router-dom";
+import { BrowserRouter, Route } from "react-router-dom";
 import { Landing } from "./components/Landing";
 import AuthProvider from "./utils/AuthContext";
 import { User } from "./components/User";
@@ -30,11 +34,17 @@ const theme = createMuiTheme({
       default: "#181818",
     },
   },
-});
+  custom: {
+    layout: {
+      padding: 80,
+      backgroundColor: "#000000",
+    },
+  },
+} as ThemeOptions);
 
 const App = () => (
   <AuthProvider>
-    <ThemeProvider theme={theme}>
+    <MuiThemeProvider theme={theme}>
       <CssBaseline />
       <BrowserRouter>
         <Header></Header>
@@ -44,12 +54,12 @@ const App = () => (
           <Route exact path="/subscribe" component={Subscribe}></Route>
           <Route
             exact
-            path="/artist/:searchValue/"
+            path="/artist/:searchValue"
             component={ArtistInfo}></Route>
         </Content>
         <Footer></Footer>
       </BrowserRouter>
-    </ThemeProvider>
+    </MuiThemeProvider>
   </AuthProvider>
 );
 

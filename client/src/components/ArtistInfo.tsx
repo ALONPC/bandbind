@@ -1,12 +1,11 @@
 import React, { useState, useEffect, FunctionComponent } from "react";
-import {makeStyles} from "@material-ui/core";
+import { makeStyles, useTheme } from "@material-ui/core";
 import { IArtist } from "../../@types/artist";
 import moment from "moment";
 import { useParams } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   card: {
-    // width: 250,
     margin: 24,
     height: "100%",
     display: "flex",
@@ -20,10 +19,6 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     justifyContent: "center",
     flexDirection: "column",
-  },
-  cardWrapper: {},
-  grayedOutCard: {
-    // opacity: 0.4,
   },
   cardTitle: {
     textAlign: "center",
@@ -46,16 +41,17 @@ interface RouteParams {
 }
 
 export const ArtistInfo: FunctionComponent<{}> = () => {
-  const params = useParams<RouteParams>();
   const [artist, setArtist] = useState<IArtist>({});
   const [loading, setLoading] = useState(false);
-  
+  const theme = useTheme();
+
+  const params = useParams<RouteParams>();
   useEffect(() => {
     getArtist();
   }, [params.searchValue]); // will re render if params change
-  
+
   const getArtist = async () => {
-    console.log("artist", artist)
+    console.log("artist", artist);
     setLoading(true);
     const response = await fetch(
       `http://localhost:8000/api/artist/${params.searchValue}`,
@@ -68,7 +64,6 @@ export const ArtistInfo: FunctionComponent<{}> = () => {
       .finally(() => {
         setLoading(false);
       });
-    console.log("getArtist -> artist", response[0]);
     setArtist(response);
   };
 
@@ -77,14 +72,15 @@ export const ArtistInfo: FunctionComponent<{}> = () => {
   const events = artist?.events ?? [];
   console.log("events", events);
   return (
-    <>
+    <div style={{ ...theme.custom.layout }}>
       {!loading &&
-        !!events.length && events.map((event) => (
+        !!events.length &&
+        events.map((event) => (
           <>
             <h1>{event.title}</h1>
           </>
         ))}
-    </>
+    </div>
   );
   // return (
   //   <Container maxWidth="xl">

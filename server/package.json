@@ -22,12 +22,12 @@
     "jsonwebtoken": "^8.5.1",
     "moment": "^2.27.0",
     "mongoose": "^5.9.27",
-    "morgan": "^1.10.0",
     "node-fetch": "^2.6.0",
     "uuid": "^8.3.0"
   },
   "devDependencies": {
     "eslint": "^7.6.0",
+    "morgan": "^1.10.0",
     "nodemon": "^2.0.4"
   }
 }

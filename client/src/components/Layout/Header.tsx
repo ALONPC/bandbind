@@ -38,7 +38,6 @@ export const Header = () => {
     <header>
       <Toolbar>
         <Grid
-          lg={8}
           container
           style={{
             display: "flex",
@@ -60,16 +59,10 @@ export const Header = () => {
               <Typography variant="h6">{APP_NAME}</Typography>
             </NavLink>
           </Grid>
-          <Grid item style={{ marginLeft: 48 }}>
+          <Grid style={{ marginLeft: 48 }}>
             <SearchBar></SearchBar>
           </Grid>
         </Grid>
-        {/* <Grid
-          container
-          style={{
-            display: "flex",
-            justifyContent: "center",
-          }}></Grid> */}
         <Grid
           container
           lg={4}

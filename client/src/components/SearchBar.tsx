@@ -37,11 +37,12 @@ export const SearchBar = () => {
     initialValues: {
       searchValue: "",
     },
-    onSubmit: (values) => {
+    onSubmit: (values, { resetForm }) => {
       console.log("values", values);
       history.push(`/artist/${values.searchValue}`, {
         params: { searchValue: values.searchValue },
       });
+      resetForm(); // after submit the value is removed
     },
   });
 

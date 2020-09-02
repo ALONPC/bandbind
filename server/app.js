@@ -1,6 +1,8 @@
 require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
+const morgan = require("morgan");
+
 const app = express();
 // const jwt = require("express-jwt");
 // const jsonwebtoken = require("jsonwebtoken");
@@ -21,6 +23,7 @@ mongoose
 // Middlewares
 app.use(cors());
 app.use(express.json());
+app.use(morgan("dev"));
 
 // Routing
 app.use("/api", artistsRoutes);
