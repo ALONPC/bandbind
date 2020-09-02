@@ -1,8 +1,17 @@
 import React, { useState, useEffect, FunctionComponent } from "react";
-import { makeStyles, useTheme } from "@material-ui/core";
+import {
+  makeStyles,
+  useTheme,
+  List,
+  ListSubheader,
+  Typography,
+  ListItem,
+  Grid,
+} from "@material-ui/core";
 import { IArtist } from "../../@types/artist";
 import moment from "moment";
 import { useParams } from "react-router-dom";
+import { EventCard } from "./EventCard";
 
 const useStyles = makeStyles((theme) => ({
   card: {
@@ -47,11 +56,10 @@ export const ArtistInfo: FunctionComponent<{}> = () => {
 
   const params = useParams<RouteParams>();
   useEffect(() => {
-    getArtist();
+    getArtists();
   }, [params.searchValue]); // will re render if params change
 
-  const getArtist = async () => {
-    console.log("artist", artist);
+  const getArtists = async () => {
     setLoading(true);
     const response = await fetch(
       `http://localhost:8000/api/artist/${params.searchValue}`,
@@ -73,13 +81,27 @@ export const ArtistInfo: FunctionComponent<{}> = () => {
   console.log("events", events);
   return (
     <div style={{ ...theme.custom.layout }}>
-      {!loading &&
-        !!events.length &&
-        events.map((event) => (
-          <>
-            <h1>{event.title}</h1>
-          </>
-        ))}
+      <Typography variant="h4">{`Results for "${params.searchValue}"...`}</Typography>
+      <List
+        subheader={
+          <ListSubheader disableSticky>
+            <h1>Upcoming events:</h1>
+          </ListSubheader>
+        }>
+        <Grid container>
+          {!loading &&
+            !!events.length &&
+            events.map((event) => (
+              <ListItem>
+                <Grid lg={9} md={12} sm={12} item>
+                  <EventCard
+                    imageUrl={artist.imageUrl}
+                    event={event}></EventCard>
+                </Grid>
+              </ListItem>
+            ))}
+        </Grid>
+      </List>
     </div>
   );
   // return (

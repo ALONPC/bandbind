@@ -63,7 +63,7 @@ export const SearchBar = () => {
             className={classes.input}
             autoFocus
             type="text"
-            placeholder="Search for artists and upcoming events..."
+            placeholder="Search for an artist..."
             fullWidth
             onChange={formik.handleChange}
             value={formik.values.searchValue}
