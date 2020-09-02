@@ -2,6 +2,28 @@ const mongoose = require("mongoose");
 const CryptoJS = require("crypto-js");
 const { v1: uuidv1 } = require("uuid");
 
+const subscriptionSchema = new mongoose.Schema({
+  plan: {
+    type: String,
+    enum: ["MONTHLY", "YEARLY", "4LIFE"],
+  },
+  active: {
+    type: Boolean,
+  },
+  price: {
+    type: Number,
+  },
+  currency: {
+    type: String,
+  },
+  discount: {
+    type: Number,
+  },
+  description: {
+    type: String,
+  },
+});
+
 const userSchema = new mongoose.Schema({
   name: {
     type: String,
@@ -24,9 +46,12 @@ const userSchema = new mongoose.Schema({
     enum: ["ADMIN", "USER"],
   },
   subscription: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "Subscription",
+    type: subscriptionSchema,
   },
+  // subscription: {
+  //   type: mongoose.Types.ObjectId,
+  //   ref: "Subscription",
+  // },
 });
 
 userSchema

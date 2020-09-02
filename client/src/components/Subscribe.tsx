@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import {
   Grid,
   Card,
@@ -10,14 +10,24 @@ import {
   useTheme,
 } from "@material-ui/core";
 import { API } from "../utils/contants";
-import { ISubscription } from "../../@types/subscription";
+import { ISubscription, IAlertState } from "../../@types/subscription";
+import { authContext } from "../utils/AuthContext";
+import { LoginDialog } from "./LoginDialog";
+import { AlertMessage } from "./Alert";
 
 const useStyles = makeStyles((theme) => ({
-  card: {
+  subscription: {
     textAlign: "center",
     width: 400,
     height: "100%",
     padding: 24,
+  },
+  purchasedSubscription: {
+    textAlign: "center",
+    width: 400,
+    height: "100%",
+    padding: 24,
+    opacity: 0.4,
   },
   subPrice: { display: "inline", fontWeight: "bold" },
 }));
@@ -25,6 +35,42 @@ const useStyles = makeStyles((theme) => ({
 export const Subscribe = () => {
   const [subscriptions, setSubscriptions] = useState<ISubscription[]>([]);
   const [loading, setLoading] = useState(false);
+  const { auth } = useContext(authContext);
+  const isLoggedIn = auth.email && auth.id;
+
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+  const handleCloseAlert = () => {
+    setAlertState({ open: false });
+  };
+
+  const [alertState, setAlertState] = useState<IAlertState>({
+    open: false,
+    message: "",
+  });
+
+  const upgradePlan = async (sub) => {
+    console.log("upgradePlan -> sub", sub);
+    console.log("Upgraded plan!");
+    // setLoading(true);
+    // const response = await fetch(`${API}/upgradePlan`, {
+    //   method: "POST",
+    //   headers: {
+    //     Accept: "application/json",
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify(user),
+    // })
+    //   .then((res) => {
+    //     return res.json();
+    //   })
+    //   .catch((err) => console.log(err));
+    // console.log("upgradePlan -> response", response);
+    // const { message } = response;
+    // setAlertState({ open: true, message });
+    // setLoading(false);
+  };
 
   useEffect(() => {
     getSubscriptions();
@@ -43,7 +89,6 @@ export const Subscribe = () => {
   };
 
   const theme = useTheme();
-  console.log("Subscribe -> theme", theme);
   const classes = useStyles();
 
   const applyDiscount = (subscription: ISubscription) => {
@@ -67,10 +112,15 @@ export const Subscribe = () => {
           {!loading &&
             subscriptions.map((sub) => {
               const withDiscount = applyDiscount(sub);
-              console.log("applyDiscount -> withDiscount", withDiscount);
+              const isPurchased = sub.plan === auth?.subscription?.plan;
               return (
                 <Grid item>
-                  <Card className={classes.card}>
+                  <Card
+                    className={
+                      isPurchased
+                        ? classes.purchasedSubscription
+                        : classes.subscription
+                    }>
                     <CardContent>
                       <Typography variant="h3">{sub.plan}</Typography>
                       {!!sub.discount && (
@@ -96,14 +146,31 @@ export const Subscribe = () => {
                         {sub.description}
                       </Typography>
                       <br></br>
-                      <Button variant="outlined" color="secondary">
-                        <Typography variant="h4">Start now!</Typography>
-                      </Button>
+                      {isPurchased ? (
+                        <Typography variant="h4">PURCHASED!</Typography>
+                      ) : (
+                        <Button
+                          onClick={!isLoggedIn ? handleOpen : upgradePlan(sub)}
+                          variant="outlined"
+                          color="secondary">
+                          <Typography variant="h4">Upgrade</Typography>
+                        </Button>
+                      )}
                     </CardContent>
                   </Card>
                 </Grid>
               );
             })}
+          <LoginDialog
+            handleOpen={handleOpen}
+            handleClose={handleClose}
+            open={open}></LoginDialog>
+          <AlertMessage
+            severity="success"
+            duration={3000}
+            message={alertState.message}
+            open={alertState.open}
+            handleClose={handleCloseAlert}></AlertMessage>
         </Grid>
       </Container>
     </div>

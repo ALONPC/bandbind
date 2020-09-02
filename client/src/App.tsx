@@ -25,7 +25,6 @@ const theme = createMuiTheme({
       main: "#eee",
     },
     secondary: {
-      // main: "#c80f1e",
       main: "#f7a614",
     },
     background: {
@@ -33,6 +32,9 @@ const theme = createMuiTheme({
       // default: "#000000",
       default: "#181818",
     },
+    // default: {
+    //   main: "#c80f1e",
+    // },
   },
   custom: {
     layout: {

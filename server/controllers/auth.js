@@ -49,6 +49,7 @@ const login = async ({ body: { email, password } }, res) => {
         expire: inTwoDays,
       });
       const { _id, name, email, role, subscription } = user;
+      console.log("login -> subscription", subscription);
       return res.json({
         token,
         message: "Login successful! Enjoy",

@@ -1,12 +1,13 @@
-import React, { FC } from "react";
-import { Card, makeStyles, Typography, Grid, Paper } from "@material-ui/core";
+import React, { FC, useContext } from "react";
+import { makeStyles, Typography, Grid, Paper, Button } from "@material-ui/core";
 import { IEvent } from "../../@types/event";
-import moment, { Moment } from "moment";
+import moment from "moment";
 import AccessTime from "@material-ui/icons/AccessTime";
 import Place from "@material-ui/icons/Place";
+import { authContext } from "../utils/AuthContext";
 
 const useStyles = (status: Boolean) =>
-  makeStyles((theme) => ({
+  makeStyles((_) => ({
     paper: {
       width: "100%",
       padding: 24,
@@ -25,6 +26,9 @@ type Props = {
 
 export const EventCard: FC<Props> = ({ imageUrl, event }) => {
   const classes = useStyles(event.status)();
+  const { auth } = useContext(authContext);
+  const isLoggedIn = !auth.id?.length;
+  console.log("auth", auth);
   const splitDate = (date: Date) => {
     const day = moment(date).format("DD");
     const month = moment(date).format("MMMM");
@@ -37,6 +41,7 @@ export const EventCard: FC<Props> = ({ imageUrl, event }) => {
       hour,
     };
   };
+  console.log("!!auth.id?.length", !!auth.id?.length);
   const eventDate = splitDate(event.date);
   return (
     <Paper className={classes.paper}>
@@ -69,7 +74,7 @@ export const EventCard: FC<Props> = ({ imageUrl, event }) => {
             <Typography variant="h6">{eventDate.year}</Typography>
           </Grid>
         </Grid>
-        <Grid lg={8} direction="column" container>
+        <Grid lg={7} direction="column" container>
           <Grid item>
             <Typography variant="h4">{event.title}</Typography>
           </Grid>
@@ -82,6 +87,18 @@ export const EventCard: FC<Props> = ({ imageUrl, event }) => {
               <AccessTime></AccessTime>
               <Typography variant="h5">{eventDate.hour}</Typography>
             </Grid>
+          </Grid>
+        </Grid>
+        <Grid lg={2} container alignContent="center">
+          <Grid item>
+            <Button
+              size="large"
+              disabled={!event.status || isLoggedIn}
+              onClick={() => console.log("Notification sent!")}
+              variant="outlined"
+              color="secondary">
+              Notify me
+            </Button>
           </Grid>
         </Grid>
       </Grid>
