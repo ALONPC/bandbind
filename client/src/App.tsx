@@ -13,7 +13,7 @@ import { Landing } from "./components/Landing";
 import AuthProvider from "./utils/AuthContext";
 import { User } from "./components/User";
 import { Subscribe } from "./components/Subscribe";
-import { ArtistInfo } from "./components/ArtistInfo";
+import { SearchResults } from "./components/SearchResults";
 
 const theme = createMuiTheme({
   typography: {
@@ -55,7 +55,7 @@ const App = () => (
           <Route
             exact
             path="/artist/:searchValue"
-            component={ArtistInfo}></Route>
+            component={SearchResults}></Route>
         </Content>
         <Footer></Footer>
       </BrowserRouter>

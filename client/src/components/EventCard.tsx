@@ -59,7 +59,9 @@ export const EventCard: FC<Props> = ({ imageUrl, event }) => {
             <Typography variant="h6">{eventDate.month}</Typography>
           </Grid>
           <Grid item>
-            <Typography variant="h4">{eventDate.day}</Typography>
+            <Typography color="secondary" variant="h4">
+              {eventDate.day}
+            </Typography>
           </Grid>
           <Grid item>
             <Typography variant="h6">{eventDate.year}</Typography>
