@@ -1,9 +1,9 @@
 const express = require("express");
 const router = express.Router();
 
-const { register, login, logout } = require("../controllers/auth");
+const { signup, login, logout } = require("../controllers/auth");
 
-const registerValidation = (req, res, next) => {
+const signupValidation = (req, res, next) => {
   req.check("name", "Name is required").notEmpty();
   req
     .check("email", "Email must be between 3 to 32 characters")
@@ -28,7 +28,7 @@ const registerValidation = (req, res, next) => {
   next();
 };
 
-router.post("/register", registerValidation, register);
+router.post("/signup", signupValidation, signup);
 router.post("/login", login);
 router.get("/logout", logout);
 

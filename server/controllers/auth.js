@@ -3,7 +3,7 @@ const jwt = require("jsonwebtoken");
 const expressJwt = require("express-jwt");
 const moment = require("moment");
 
-const register = async ({ body: userData }, res) => {
+const signup = async ({ body: userData }, res) => {
   const user = new User(userData);
   await user.save((err, user) => {
     err &&
@@ -28,7 +28,7 @@ const login = async ({ body: { email, password } }, res) => {
       console.log("login -> user", user);
       if (err || !user) {
         return res.status(400).json({
-          error: "User is not registered, please register",
+          error: "User not found, please sign up",
         });
       }
       const authenticated = user.authenticate(password);
@@ -98,7 +98,7 @@ const isAdmin = (req, res, next) => {
 };
 
 module.exports = {
-  register,
+  signup,
   login,
   logout,
   isAdmin,
