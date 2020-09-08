@@ -14,6 +14,7 @@ import AuthProvider from "./utils/AuthContext";
 import { User } from "./components/User";
 import { Subscribe } from "./components/Subscribe";
 import { SearchResults } from "./components/SearchResults";
+import { SignUp } from "./components/SignUp";
 
 const theme = createMuiTheme({
   typography: {
@@ -54,6 +55,7 @@ const App = () => (
           <Route exact path="/" component={Landing}></Route>
           <Route exact path="/user" component={User}></Route>
           <Route exact path="/subscribe" component={Subscribe}></Route>
+          <Route exact path="/signup" component={SignUp}></Route>
           <Route
             exact
             path="/artist/:searchValue"

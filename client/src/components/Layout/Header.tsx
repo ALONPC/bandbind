@@ -39,7 +39,11 @@ export const Header = () => {
             display: "flex",
             alignItems: "center",
             alignContent: "center",
-          }}>
+          }}
+          lg={8}
+          md={6}
+          sm={6}
+          xs={6}>
           <Grid item>
             <IconButton edge="start" color="inherit">
               <Album />
@@ -55,7 +59,7 @@ export const Header = () => {
               <Typography variant="h6">{APP_NAME}</Typography>
             </NavLink>
           </Grid>
-          <Grid item lg={4} style={{ marginLeft: 48 }}>
+          <Grid item style={{ marginLeft: 48 }}>
             <SearchBar></SearchBar>
           </Grid>
         </Grid>
@@ -64,7 +68,11 @@ export const Header = () => {
           alignItems="center"
           alignContent="center"
           justify="flex-end"
-          spacing={4}>
+          spacing={4}
+          lg={4}
+          md={6}
+          sm={6}
+          xs={6}>
           {user && isLoggedIn ? (
             <>
               <Grid item>
@@ -89,10 +97,10 @@ export const Header = () => {
               <Typography variant="subtitle1">OR</Typography>
               <Grid item>
                 <Button
-                  onClick={handleOpen}
+                  onClick={() => history.push("/signup")}
                   variant="outlined"
                   color="secondary">
-                  Register
+                  Sign up
                 </Button>
               </Grid>
             </>

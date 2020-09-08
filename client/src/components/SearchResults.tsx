@@ -51,7 +51,7 @@ export const SearchResults: FunctionComponent<{}> = () => {
   const classes = useStyles();
   const events = artist?.events ?? [];
   return (
-    <div style={{ ...theme.custom.layout }}>
+    <div style={theme.custom.layout}>
       <Typography variant="h4">{`Upcoming events for "${params.searchValue}"...`}</Typography>
       <List className={classes.eventList}>
         <Grid container>

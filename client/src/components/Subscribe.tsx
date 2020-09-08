@@ -104,7 +104,7 @@ export const Subscribe = () => {
   };
 
   return (
-    <div style={{ ...theme.custom.layout }}>
+    <div style={theme.custom.layout}>
       <Container maxWidth="lg">
         <Typography variant="h4">
           It's time to headbang and you know it...

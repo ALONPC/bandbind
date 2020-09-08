@@ -4,6 +4,6 @@ type Props = {
   children: React.ReactNode;
 };
 
-export const Content: React.FunctionComponent<Props> = ({ children }) => {
-  return <main>{children}</main>;
-};
+export const Content: React.FunctionComponent<Props> = ({ children }) => (
+  <main>{children}</main>
+);
