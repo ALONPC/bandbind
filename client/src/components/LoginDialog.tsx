@@ -55,22 +55,15 @@ export const LoginDialog: React.FunctionComponent<Props> = ({
     try {
       setLoading(true);
       const response = await login(userData);
-      const {
-        message,
-        user,
-        // user: { _id, email },
-      } = response;
+      const { message, user } = response;
       auth.setAuthStatus(user);
       handleClose();
       setLoading(false);
       setAlertState({ open: true, message });
-      console.log("response", response);
       redirectUser(user);
     } catch (error) {
-      console.log("handleSubmit -> error", error);
+      console.log(error);
     }
-    // const UserContext = createContext(response);
-    // redirectUser(user);
   };
 
   const formik = useFormik({
@@ -81,7 +74,6 @@ export const LoginDialog: React.FunctionComponent<Props> = ({
     onSubmit: async (values) => {
       console.log("values", values);
       await handleSubmit(values);
-      // alert(JSON.stringify(values, null, 2));
     },
   });
 

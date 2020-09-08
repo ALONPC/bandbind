@@ -65,11 +65,8 @@ userSchema
     return this._password;
   });
 
-// console.log("userSchema", userSchema)
 userSchema.methods = {
   authenticate: function (plainText) {
-    console.log("plainText", plainText);
-    console.log("this.hashedPassword", this.hashedPassword);
     return this.encryptPassword(plainText) === this.hashedPassword;
   },
 
@@ -77,9 +74,7 @@ userSchema.methods = {
     if (!password) return "";
     try {
       const hashedPassword = CryptoJS.HmacSHA1(password, process.env.SECRET);
-      console.log("hashedPassword", hashedPassword);
       const encryptedPassword = CryptoJS.enc.Base64.stringify(hashedPassword);
-      console.log("encryptedPassword", encryptedPassword);
       return encryptedPassword;
     } catch (err) {
       return "An error ocurred when hashing password";
