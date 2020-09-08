@@ -53,7 +53,7 @@ const App = () => (
         <Header></Header>
         <Content>
           <Route exact path="/" component={Landing}></Route>
-          <Route exact path="/user" component={User}></Route>
+          <Route exact path="/user/:userId" component={User}></Route>
           <Route exact path="/subscribe" component={Subscribe}></Route>
           <Route exact path="/signup" component={SignUp}></Route>
           <Route

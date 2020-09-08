@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import Dialog from "@material-ui/core/Dialog";
@@ -41,26 +41,35 @@ export const LoginDialog: React.FunctionComponent<Props> = ({
     open: false,
     message: "",
   });
-  const auth = React.useContext(authContext);
+  const { auth, setAuthStatus } = useContext(authContext);
 
-  const redirectUser = (user: any) => {
-    if (user && user.role === "ADMIN") {
-      history.push("/admin");
-    } else {
-      history.push("/user");
-    }
+  const redirectUser = () => {
+    // if (!!user && user.role === "ADMIN") {
+    //   // history.push("/admin");
+    //   console.log("admin panel on todo list");
+    // } else {
+    history.push(`/user/${auth._id}`, {
+      params: { userId: auth._id },
+    });
+    // }
   };
 
   const handleSubmit = async (userData: IUser) => {
     try {
       setLoading(true);
       const response = await login(userData);
-      const { message, user } = response;
-      auth.setAuthStatus(user);
-      handleClose();
-      setLoading(false);
-      setAlertState({ open: true, message });
-      redirectUser(user);
+      if (!!response) {
+        console.log("handleSubmit -> response", response);
+        const { user, message } = response;
+        setAuthStatus(user);
+        handleClose();
+        setLoading(false);
+        // redirectUser();
+        history.push(`/user/${user._id}`, {
+          params: { userId: user._id },
+        });
+        setAlertState({ open: true, message });
+      }
     } catch (error) {
       console.log(error);
     }

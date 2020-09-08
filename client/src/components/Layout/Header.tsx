@@ -76,7 +76,15 @@ export const Header = () => {
           {user && isLoggedIn ? (
             <>
               <Grid item>
-                <Typography variant="subtitle1">{`Welcome, ${user.auth.name}`}</Typography>
+                <Button
+                  onClick={() =>
+                    history.push(`/user/${user.auth._id}`, {
+                      params: { userId: user.auth._id },
+                    })
+                  }
+                  variant="outlined">
+                  My Profile
+                </Button>
               </Grid>
               <Grid item>
                 <Button

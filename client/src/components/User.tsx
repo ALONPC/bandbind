@@ -1,5 +1,7 @@
-import React from "react";
-import { makeStyles } from "@material-ui/core";
+import React, { useContext, useEffect } from "react";
+import { makeStyles, useTheme, Typography } from "@material-ui/core";
+import { authContext } from "../utils/AuthContext";
+import { useParams } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   layout: {
@@ -8,11 +10,29 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+interface RouteParams {
+  userId: string;
+}
+
 export const User = () => {
-  const classes = useStyles();
+  const theme = useTheme();
+  const { auth } = useContext(authContext);
+
+  // const getUsersFavoriteArtists = async () => {
+  // GET method passing the user ID and fetch all favorite artists
+  // }
+
+  const params = useParams<RouteParams>();
+  console.log("User -> params", params);
+
+  useEffect(() => {
+    // do smt
+  }, [params.userId]);
+
   return (
-    <div className={classes.layout}>
-      <h1>Hello user!</h1>
+    <div style={theme.custom.layout}>
+      <Typography variant="h4">{`Welcome back, ${auth.name}`}</Typography>
+      {/* <Typography variant="h6">Your favorite artists:</Typography> */}
     </div>
   );
 };
