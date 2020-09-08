@@ -15,6 +15,10 @@ import {
 } from "@material-ui/core";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import { IUser } from "../../@types/user";
+import { IAlertState } from "../../@types/alertState";
+import { signup } from "../auth";
+import { AlertMessage } from "./Alert";
 
 const useStyles = makeStyles((theme) => ({
   form: {
@@ -31,6 +35,15 @@ const useStyles = makeStyles((theme) => ({
 export const SignUp = () => {
   const theme = useTheme();
   const [loading, setLoading] = useState(false);
+  const [alertState, setAlertState] = useState<IAlertState>({
+    open: false,
+    message: "",
+  });
+
+  const handleCloseAlert = () => {
+    setAlertState({ open: false });
+  };
+
   const {
     handleSubmit,
     handleChange,
@@ -58,12 +71,36 @@ export const SignUp = () => {
     },
     onSubmit: async (values) => {
       console.log("values", values);
-      //   await handleSubmit(values);
+      const { passwordConfirmation, ...restOfValues } = values;
+      const valuesToSend = {
+        ...restOfValues,
+        role: "USER",
+      };
+      await handleSignUp(valuesToSend);
     },
   });
+  const handleSignUp = async (userData: IUser) => {
+    try {
+      setLoading(true);
+      const response = await signup(userData);
+      const { message, user } = response;
+      console.log("handleSignUp -> user", user);
+      setLoading(false);
+      setAlertState({ open: true, message });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const classes = useStyles();
   return (
     <div style={theme.custom.layout}>
+      <AlertMessage
+        severity="success"
+        duration={3000}
+        message={alertState.message}
+        open={alertState.open}
+        handleClose={handleCloseAlert}></AlertMessage>
       <Container className={classes.form} maxWidth="lg">
         <Grid container alignItems="stretch">
           <Grid item lg={6}>

@@ -58,7 +58,7 @@ export const SearchResults: FunctionComponent<{}> = () => {
           {!loading &&
             !!events.length &&
             events.map((event) => (
-              <ListItem>
+              <ListItem key={event._id}>
                 <Grid lg={9} md={12} sm={12} item>
                   <EventCard
                     imageUrl={artist.imageUrl}

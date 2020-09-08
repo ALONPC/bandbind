@@ -7,11 +7,12 @@ export type IUserAuth = {
 
 export interface IUser {
   _id?: string;
+  name?: string;
   email: string;
   password?: string;
-  name?: string;
   hashedPassword?: string;
-  role?: eRole;
+  // role?: eRole;
+  role?: string;
   subscription?: ISubscription;
 }
 

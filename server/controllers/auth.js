@@ -4,6 +4,7 @@ const expressJwt = require("express-jwt");
 const moment = require("moment");
 
 const signup = async ({ body: userData }, res) => {
+  console.log("signup -> userData", userData);
   const user = new User(userData);
   await user.save((err, user) => {
     err &&
@@ -14,6 +15,7 @@ const signup = async ({ body: userData }, res) => {
     user.salt = undefined;
     user.hashedPassword = undefined;
     res.json({
+      message: "Sign up successfull! Login now to start!",
       user,
     });
   });
