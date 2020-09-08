@@ -63,29 +63,40 @@ export const Header = () => {
           container
           alignItems="center"
           alignContent="center"
-          justify="flex-end">
-          {user && isLoggedIn && (
-            <Grid item>
-              <>
+          justify="flex-end"
+          spacing={4}>
+          {user && isLoggedIn ? (
+            <>
+              <Grid item>
                 <Typography variant="subtitle1">{`Welcome, ${user.auth.name}`}</Typography>
-                <Divider variant="fullWidth" orientation="vertical"></Divider>
-              </>
-            </Grid>
+              </Grid>
+              <Grid item>
+                <Button
+                  onClick={() => handleLogout()}
+                  variant="outlined"
+                  color="secondary">
+                  Logout
+                </Button>
+              </Grid>
+            </>
+          ) : (
+            <>
+              <Grid item>
+                <Button onClick={handleOpen} variant="outlined" color="primary">
+                  Login
+                </Button>
+              </Grid>
+              <Typography variant="subtitle1">OR</Typography>
+              <Grid item>
+                <Button
+                  onClick={handleOpen}
+                  variant="outlined"
+                  color="secondary">
+                  Register
+                </Button>
+              </Grid>
+            </>
           )}
-          <Grid item style={{ marginLeft: 20 }}>
-            {user && isLoggedIn ? (
-              <Button
-                onClick={() => handleLogout()}
-                variant="outlined"
-                color="secondary">
-                Logout
-              </Button>
-            ) : (
-              <Button onClick={handleOpen} variant="outlined" color="primary">
-                Login
-              </Button>
-            )}
-          </Grid>
         </Grid>
 
         <LoginDialog
