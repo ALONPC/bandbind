@@ -13,8 +13,16 @@ import { LoginDialog } from "../LoginDialog";
 import { authContext } from "../../utils/AuthContext";
 import { NavLink, useHistory } from "react-router-dom";
 import { SearchBar } from "../SearchBar";
+import { AlertMessage } from "../Alert";
 
 export const Header = () => {
+  const [alertState, setAlertState] = useState<any>({
+    open: false,
+    message: "",
+  });
+  const handleCloseAlert = () => {
+    setAlertState({ open: false });
+  };
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -27,6 +35,10 @@ export const Header = () => {
 
   const handleLogout = () => {
     user.setUnauthStatus();
+    setAlertState({
+      open: true,
+      message: "Logout successfull",
+    });
     history.push("/");
   };
 
@@ -114,6 +126,13 @@ export const Header = () => {
             </>
           )}
         </Grid>
+
+        <AlertMessage
+          severity="success"
+          duration={3000}
+          message={alertState.message}
+          open={alertState.open}
+          handleClose={handleCloseAlert}></AlertMessage>
 
         <LoginDialog
           handleOpen={handleOpen}

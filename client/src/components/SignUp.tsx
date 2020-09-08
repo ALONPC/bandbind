@@ -19,6 +19,7 @@ import { IUser } from "../../@types/user";
 import { IAlertState } from "../../@types/alertState";
 import { signup } from "../auth";
 import { AlertMessage } from "./Alert";
+import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   form: {
@@ -39,6 +40,8 @@ export const SignUp = () => {
     open: false,
     message: "",
   });
+
+  const history = useHistory();
 
   const handleCloseAlert = () => {
     setAlertState({ open: false });
@@ -69,7 +72,7 @@ export const SignUp = () => {
       password: "",
       passwordConfirmation: "",
     },
-    onSubmit: async (values) => {
+    onSubmit: async (values, { resetForm }) => {
       console.log("values", values);
       const { passwordConfirmation, ...restOfValues } = values;
       const valuesToSend = {
@@ -77,6 +80,7 @@ export const SignUp = () => {
         role: "USER",
       };
       await handleSignUp(valuesToSend);
+      resetForm();
     },
   });
   const handleSignUp = async (userData: IUser) => {
@@ -84,9 +88,10 @@ export const SignUp = () => {
       setLoading(true);
       const response = await signup(userData);
       const { message, user } = response;
+      console.log("handleSignUp -> message", message);
       console.log("handleSignUp -> user", user);
       setLoading(false);
-      setAlertState({ open: true, message });
+      await setAlertState({ open: true, message });
     } catch (error) {
       console.log(error);
     }
@@ -94,139 +99,141 @@ export const SignUp = () => {
 
   const classes = useStyles();
   return (
-    <div style={theme.custom.layout}>
+    <>
       <AlertMessage
         severity="success"
-        duration={3000}
+        duration={4000}
         message={alertState.message}
         open={alertState.open}
         handleClose={handleCloseAlert}></AlertMessage>
-      <Container className={classes.form} maxWidth="lg">
-        <Grid container alignItems="stretch">
-          <Grid item lg={6}>
-            <Paper className={classes.img}></Paper>
-          </Grid>
-          <Grid item lg={6}>
-            <form onSubmit={handleSubmit}>
-              <Card style={{ padding: 18 }}>
-                <CardContent>
-                  <Typography variant="h4">Sign up</Typography>
-                  <br></br>
-                  <Grid container justify="space-evenly">
-                    <Grid container direction="column">
-                      <Grid item>
-                        <TextField
-                          margin="normal"
-                          id="name"
-                          label="Name"
-                          type="text"
-                          fullWidth
-                          variant="outlined"
-                          onChange={handleChange}
-                          value={values.name}
-                          onBlur={handleBlur}
-                          color="secondary"
-                          helperText={
-                            errors.name && touched.name
-                              ? errors.name
-                              : "Enter your full name."
-                          }
-                          error={errors.name && touched.name ? true : false}
-                        />
+      <div style={theme.custom.layout}>
+        <Container className={classes.form} maxWidth="lg">
+          <Grid container alignItems="stretch">
+            <Grid item lg={6}>
+              <Paper className={classes.img}></Paper>
+            </Grid>
+            <Grid item lg={6}>
+              <form onSubmit={handleSubmit}>
+                <Card style={{ padding: 18 }}>
+                  <CardContent>
+                    <Typography variant="h4">Sign up</Typography>
+                    <br></br>
+                    <Grid container justify="space-evenly">
+                      <Grid container direction="column">
+                        <Grid item>
+                          <TextField
+                            margin="normal"
+                            id="name"
+                            label="Name"
+                            type="text"
+                            fullWidth
+                            variant="outlined"
+                            onChange={handleChange}
+                            value={values.name}
+                            onBlur={handleBlur}
+                            color="secondary"
+                            helperText={
+                              errors.name && touched.name
+                                ? errors.name
+                                : "Enter your full name."
+                            }
+                            error={errors.name && touched.name ? true : false}
+                          />
+                        </Grid>
+                        <Grid item>
+                          <TextField
+                            margin="normal"
+                            id="email"
+                            label="Email"
+                            type="email"
+                            fullWidth
+                            variant="outlined"
+                            onChange={handleChange}
+                            value={values.email}
+                            onBlur={handleBlur}
+                            color="secondary"
+                            helperText={
+                              errors.email && touched.email
+                                ? errors.email
+                                : "Enter your email."
+                            }
+                            error={errors.email && touched.email ? true : false}
+                          />
+                        </Grid>
                       </Grid>
-                      <Grid item>
-                        <TextField
-                          margin="normal"
-                          id="email"
-                          label="Email"
-                          type="email"
-                          fullWidth
-                          variant="outlined"
-                          onChange={handleChange}
-                          value={values.email}
-                          onBlur={handleBlur}
-                          color="secondary"
-                          helperText={
-                            errors.email && touched.email
-                              ? errors.email
-                              : "Enter your email."
-                          }
-                          error={errors.email && touched.email ? true : false}
-                        />
+                      <Grid container direction="column">
+                        <Grid item>
+                          <TextField
+                            margin="normal"
+                            id="password"
+                            label="Password"
+                            type="password"
+                            fullWidth
+                            variant="outlined"
+                            onChange={handleChange}
+                            value={values.password}
+                            onBlur={handleBlur}
+                            color="secondary"
+                            helperText={
+                              errors.password && touched.password
+                                ? errors.password
+                                : "Enter your password."
+                            }
+                            error={
+                              errors.password && touched.password ? true : false
+                            }
+                          />
+                        </Grid>
+
+                        <Grid item>
+                          <TextField
+                            margin="normal"
+                            id="passwordConfirmation"
+                            label="Repeat password"
+                            type="password"
+                            fullWidth
+                            variant="outlined"
+                            onChange={handleChange}
+                            value={values.passwordConfirmation}
+                            onBlur={handleBlur}
+                            color="secondary"
+                            helperText={
+                              errors.passwordConfirmation &&
+                              touched.passwordConfirmation
+                                ? errors.passwordConfirmation
+                                : "Confirm your password."
+                            }
+                            error={
+                              errors.passwordConfirmation &&
+                              touched.passwordConfirmation
+                                ? true
+                                : false
+                            }
+                          />
+                        </Grid>
                       </Grid>
                     </Grid>
-                    <Grid container direction="column">
-                      <Grid item>
-                        <TextField
-                          margin="normal"
-                          id="password"
-                          label="Password"
-                          type="password"
-                          fullWidth
-                          variant="outlined"
-                          onChange={handleChange}
-                          value={values.password}
-                          onBlur={handleBlur}
-                          color="secondary"
-                          helperText={
-                            errors.password && touched.password
-                              ? errors.password
-                              : "Enter your password."
-                          }
-                          error={
-                            errors.password && touched.password ? true : false
-                          }
-                        />
-                      </Grid>
+                  </CardContent>
 
-                      <Grid item>
-                        <TextField
-                          margin="normal"
-                          id="passwordConfirmation"
-                          label="Repeat password"
-                          type="password"
-                          fullWidth
-                          variant="outlined"
-                          onChange={handleChange}
-                          value={values.passwordConfirmation}
-                          onBlur={handleBlur}
-                          color="secondary"
-                          helperText={
-                            errors.passwordConfirmation &&
-                            touched.passwordConfirmation
-                              ? errors.passwordConfirmation
-                              : "Confirm your password."
-                          }
-                          error={
-                            errors.passwordConfirmation &&
-                            touched.passwordConfirmation
-                              ? true
-                              : false
-                          }
-                        />
-                      </Grid>
+                  <CardActions>
+                    <Grid container justify="flex-end">
+                      <Button
+                        size="large"
+                        disabled={loading}
+                        type="submit"
+                        variant="outlined"
+                        color="primary">
+                        Submit
+                      </Button>
+                      {loading && <CircularProgress size={24} />}
                     </Grid>
-                  </Grid>
-                </CardContent>
-
-                <CardActions>
-                  <Grid container justify="flex-end">
-                    <Button
-                      size="large"
-                      disabled={loading}
-                      type="submit"
-                      variant="outlined"
-                      color="primary">
-                      Submit
-                    </Button>
-                    {loading && <CircularProgress size={24} />}
-                  </Grid>
-                </CardActions>
-              </Card>
-            </form>
+                  </CardActions>
+                </Card>
+              </form>
+            </Grid>
           </Grid>
-        </Grid>
-      </Container>
-    </div>
+        </Container>
+      </div>
+    </>
   );
 };

@@ -32,6 +32,9 @@ export const User = () => {
   return (
     <div style={theme.custom.layout}>
       <Typography variant="h4">{`Welcome back, ${auth.name}`}</Typography>
+      <Typography variant="h6">{`Your current subscription: ${
+        auth.subscription?.plan || "No plan"
+      }`}</Typography>
       {/* <Typography variant="h6">Your favorite artists:</Typography> */}
     </div>
   );
