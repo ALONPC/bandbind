@@ -6,8 +6,14 @@ import {
   CardMedia,
   CardContent,
   CardHeader,
+  Chip,
+  Typography,
+  Grid,
+  Divider,
+  IconButton,
 } from "@material-ui/core";
 import { IArtist } from "../../@types/artist";
+import StarBorder from "@material-ui/icons/StarBorder";
 
 const useStyles = makeStyles((theme) => ({
   card: {
@@ -40,8 +46,25 @@ type Props = {
 
 export const ArtistCard: FunctionComponent<Props> = ({ artist, isLanding }) => {
   const classes = useStyles();
+  const ArtistCardTitle = () => (
+    <Grid container style={{ padding: 12 }} justify="space-between">
+      <Grid item>
+        <Typography variant="h4">{artist.name}</Typography>
+      </Grid>
+      <Grid item>
+        <IconButton
+          type="submit"
+          onClick={() => {
+            //make favorite
+            console.log("favorite");
+          }}>
+          <StarBorder />
+        </IconButton>
+      </Grid>
+    </Grid>
+  );
   return isLanding ? (
-    <Card key={artist._id} className={classes.card}>
+    <Card className={classes.card}>
       <CardActionArea>
         <CardMedia
           className={classes.media}
@@ -51,15 +74,9 @@ export const ArtistCard: FunctionComponent<Props> = ({ artist, isLanding }) => {
       </CardActionArea>
     </Card>
   ) : (
-    <Card key={artist._id} className={classes.card} raised={true}>
+    <Card className={classes.card} style={{ width: 400 }}>
       <CardActionArea>
-        <CardHeader
-          title={artist.name}
-          // subheader={
-          //   (hasEvents && moment(artist.events[0].date).format("DD/MM/YYYY")) ||
-          //   "(No scheduled events)"
-          // }
-        />
+        <ArtistCardTitle></ArtistCardTitle>
         <CardMedia
           className={classes.media}
           image={artist.imageUrl}
@@ -67,13 +84,16 @@ export const ArtistCard: FunctionComponent<Props> = ({ artist, isLanding }) => {
         />
         <CardContent className={classes.cardContent}>
           <div className={classes.chipWrapper}>
-            {/* {artist.genres.slice(0, 2).map((genre, index) => (
-              <Chip
-                key={index}
-                size="small"
-                label={<Typography variant="h6">{genre}</Typography>}
-              />
-            ))} */}
+            {!!artist.genres &&
+              artist.genres
+                .slice(0, 3)
+                .map((genre, index) => (
+                  <Chip
+                    key={index}
+                    size="small"
+                    label={<Typography variant="h6">{genre}</Typography>}
+                  />
+                ))}
           </div>
         </CardContent>
       </CardActionArea>

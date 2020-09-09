@@ -11,6 +11,8 @@ import { IArtist } from "../../@types/artist";
 import { useParams } from "react-router-dom";
 import { EventCard } from "./EventCard";
 import { Loading } from "./Loading";
+import { ArtistCard } from "./ArtistCard";
+import { Skeleton } from "@material-ui/lab";
 
 const useStyles = makeStyles((theme) => ({
   eventList: {
@@ -22,8 +24,24 @@ interface RouteParams {
   searchValue: string;
 }
 
+const LoadingSearchResults = () => (
+  <div style={{ padding: 24 }}>
+    <Grid container justify="flex-start" spacing={4}>
+      <Grid item lg={9}>
+        <Skeleton variant="rect" height={380} width={400} />
+      </Grid>
+      {Array.from({ length: 6 }).map(() => (
+        <Grid item lg={9}>
+          <Skeleton variant="text" height={130} />
+        </Grid>
+      ))}
+    </Grid>
+  </div>
+);
+
 export const SearchResults: FunctionComponent<{}> = () => {
   const [artist, setArtist] = useState<IArtist>({});
+  console.log("artist", artist);
   const [loading, setLoading] = useState(false);
   const theme = useTheme();
 
@@ -52,7 +70,19 @@ export const SearchResults: FunctionComponent<{}> = () => {
   const events = artist?.events ?? [];
   return (
     <div style={theme.custom.layout}>
-      <Typography variant="h4">{`Upcoming events for "${params.searchValue}"...`}</Typography>
+      <Typography variant="h6">{`Search results for "${params.searchValue}"...`}</Typography>
+
+      {loading && <LoadingSearchResults></LoadingSearchResults>}
+
+      {!loading && (
+        <>
+          <Grid container>
+            <ArtistCard artist={artist} isLanding={false}></ArtistCard>
+          </Grid>
+          <Typography variant="h4">{`Upcoming events:`}</Typography>
+        </>
+      )}
+
       <List className={classes.eventList}>
         <Grid container>
           {!loading &&
@@ -66,7 +96,7 @@ export const SearchResults: FunctionComponent<{}> = () => {
                 </Grid>
               </ListItem>
             ))}
-          {loading && <Loading></Loading>}
+
           {!loading && events.length === 0 && (
             <h1>Sorry, there are no events scheduled for this artist yet :(</h1>
           )}
