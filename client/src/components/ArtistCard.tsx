@@ -11,6 +11,7 @@ import {
   Grid,
   Divider,
   IconButton,
+  Button,
 } from "@material-ui/core";
 import { IArtist } from "../../@types/artist";
 import StarBorder from "@material-ui/icons/StarBorder";
@@ -52,14 +53,19 @@ export const ArtistCard: FunctionComponent<Props> = ({ artist, isLanding }) => {
         <Typography variant="h4">{artist.name}</Typography>
       </Grid>
       <Grid item>
-        <IconButton
+        <Button
+          variant="outlined"
+          color="secondary"
           type="submit"
           onClick={() => {
-            //make favorite
+            // make favorite or unfavorite
+            // this will be on the user "favorite artists" field
+            // make an endpoint for adding or removing the artist from favorites
+            // make an endpoint to get the favorite artists in the user panel
             console.log("favorite");
           }}>
           <StarBorder />
-        </IconButton>
+        </Button>
       </Grid>
     </Grid>
   );
