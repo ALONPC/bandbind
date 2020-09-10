@@ -15,6 +15,9 @@ import {
 } from "@material-ui/core";
 import { IArtist } from "../../@types/artist";
 import StarBorder from "@material-ui/icons/StarBorder";
+import HeadsetTwoToneIcon from "@material-ui/icons/HeadsetTwoTone";
+import { NavLink } from "react-router-dom";
+import { API } from "../utils/contants";
 
 const useStyles = makeStyles((theme) => ({
   card: {
@@ -48,37 +51,46 @@ type Props = {
 export const ArtistCard: FunctionComponent<Props> = ({ artist, isLanding }) => {
   const classes = useStyles();
   const ArtistCardTitle = () => (
-    <Grid container style={{ padding: 12 }} justify="space-between">
+    <Grid
+      container
+      style={{ padding: 12 }}
+      justify="space-between"
+      alignContent="center"
+      alignItems="center">
       <Grid item>
         <Typography variant="h4">{artist.name}</Typography>
       </Grid>
       <Grid item>
-        <Button
-          variant="outlined"
-          color="secondary"
-          type="submit"
-          onClick={() => {
-            // make favorite or unfavorite
-            // this will be on the user "favorite artists" field
-            // make an endpoint for adding or removing the artist from favorites
-            // make an endpoint to get the favorite artists in the user panel
-            console.log("favorite");
-          }}>
-          <StarBorder />
-        </Button>
+        <a href={artist.url}>
+          <Button
+            size="small"
+            // type="submit"
+            // onClick={() => {
+            //   // make favorite or unfavorite
+            //   // this will be on the user "favorite artists" field
+            //   // make an endpoint for adding or removing the artist from favorites
+            //   // make an endpoint to get the favorite artists in the user panel
+            //   console.log("favorite");
+            // }}>
+          >
+            Listen on Spotify
+          </Button>
+        </a>
       </Grid>
     </Grid>
   );
   return isLanding ? (
-    <Card className={classes.card}>
-      <CardActionArea>
-        <CardMedia
-          className={classes.media}
-          image={artist.imageUrl}
-          title={artist.name}
-        />
-      </CardActionArea>
-    </Card>
+    <a href={artist.url}>
+      <Card className={classes.card}>
+        <CardActionArea>
+          <CardMedia
+            className={classes.media}
+            image={artist.imageUrl}
+            title={artist.name}
+          />
+        </CardActionArea>
+      </Card>
+    </a>
   ) : (
     <Card className={classes.card} style={{ width: 400 }}>
       <CardActionArea>
@@ -97,7 +109,7 @@ export const ArtistCard: FunctionComponent<Props> = ({ artist, isLanding }) => {
                   <Chip
                     key={index}
                     size="small"
-                    label={<Typography variant="h6">{genre}</Typography>}
+                    label={<Typography variant="body1">{genre}</Typography>}
                   />
                 ))}
           </div>

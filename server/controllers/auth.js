@@ -30,14 +30,16 @@ const login = async ({ body: { email, password } }, res) => {
       console.log("login -> user", user);
       if (err || !user) {
         return res.status(400).json({
-          error: "User not found, please sign up",
+          message: "User not found, please sign up",
+          error: true,
         });
       }
       const authenticated = user.authenticate(password);
       console.log("login -> authenticated", authenticated);
       if (!authenticated) {
         return res.status(401).json({
-          error: "User password mismatch",
+          message: "User password mismatch",
+          error: true,
         });
       }
       const token = jwt.sign(

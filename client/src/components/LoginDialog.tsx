@@ -40,38 +40,32 @@ export const LoginDialog: React.FunctionComponent<Props> = ({
   const [alertState, setAlertState] = useState<any>({
     open: false,
     message: "",
+    error: "",
   });
   const { auth, setAuthStatus } = useContext(authContext);
 
-  const redirectUser = () => {
-    // if (!!user && user.role === "ADMIN") {
-    //   // history.push("/admin");
-    //   console.log("admin panel on todo list");
-    // } else {
-    history.push(`/user/${auth._id}`, {
-      params: { userId: auth._id },
-    });
-    // }
-  };
-
   const handleSubmit = async (userData: IUser) => {
+    const response = await login(userData);
+    console.log("handleSubmit -> response", response);
+    const { user = {}, message = "", error } = response;
     try {
       setLoading(true);
-      const response = await login(userData);
-      if (!!response) {
+      if (!!response.user) {
         console.log("handleSubmit -> response", response);
-        const { user, message } = response;
         setAuthStatus(user);
         handleClose();
-        setLoading(false);
-        // redirectUser();
         history.push(`/user/${user._id}`, {
           params: { userId: user._id },
         });
-        setAlertState({ open: true, message });
+      } else {
+        history.push("/");
       }
     } catch (error) {
       console.log(error);
+    } finally {
+      setAlertState({ open: true, message, error });
+      setLoading(false);
+      formik.resetForm();
     }
   };
 
@@ -80,10 +74,7 @@ export const LoginDialog: React.FunctionComponent<Props> = ({
       email: "",
       password: "",
     },
-    onSubmit: async (values) => {
-      console.log("values", values);
-      await handleSubmit(values);
-    },
+    onSubmit: async (values) => await handleSubmit(values),
   });
 
   const handleCloseAlert = () => {
@@ -93,7 +84,7 @@ export const LoginDialog: React.FunctionComponent<Props> = ({
   return (
     <>
       <AlertMessage
-        severity="success"
+        severity={alertState.error ? "error" : "success"}
         duration={3000}
         message={alertState.message}
         open={alertState.open}
@@ -125,6 +116,7 @@ export const LoginDialog: React.FunctionComponent<Props> = ({
                 fullWidth
                 variant="outlined"
                 onChange={formik.handleChange}
+                value={formik.values.password}
               />
             </DialogContent>
             <DialogActions>
