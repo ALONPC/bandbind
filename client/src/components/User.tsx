@@ -3,13 +3,6 @@ import { makeStyles, useTheme, Typography } from "@material-ui/core";
 import { authContext } from "../utils/AuthContext";
 import { useParams } from "react-router-dom";
 
-const useStyles = makeStyles((theme) => ({
-  layout: {
-    padding: 24,
-    backgroundColor: theme.palette.secondary.main,
-  },
-}));
-
 interface RouteParams {
   userId: string;
 }

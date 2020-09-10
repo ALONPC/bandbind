@@ -10,15 +10,8 @@ import {
 import { IArtist } from "../../@types/artist";
 import { useParams } from "react-router-dom";
 import { EventCard } from "./EventCard";
-import { Loading } from "./Loading";
 import { ArtistCard } from "./ArtistCard";
 import { Skeleton } from "@material-ui/lab";
-
-const useStyles = makeStyles((theme) => ({
-  eventList: {
-    marginTop: 24,
-  },
-}));
 
 interface RouteParams {
   searchValue: string;
@@ -66,11 +59,10 @@ export const SearchResults: FunctionComponent<{}> = () => {
     setArtist(response);
   };
 
-  const classes = useStyles();
   const events = artist?.events ?? [];
   return (
     <div style={theme.custom.layout}>
-      <Typography variant="h6">{`Search results for "${params.searchValue}"...`}</Typography>
+      <Typography variant="h5">{`Search results for "${params.searchValue}"...`}</Typography>
 
       {loading && <LoadingSearchResults></LoadingSearchResults>}
 
@@ -79,11 +71,11 @@ export const SearchResults: FunctionComponent<{}> = () => {
           <Grid container>
             <ArtistCard artist={artist} isLanding={false}></ArtistCard>
           </Grid>
-          <Typography variant="h4">{`Upcoming events:`}</Typography>
+          <Typography variant="h5">{`Upcoming events:`}</Typography>
         </>
       )}
 
-      <List className={classes.eventList}>
+      <List>
         <Grid container>
           {!loading &&
             !!events.length &&

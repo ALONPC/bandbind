@@ -39,8 +39,9 @@ const theme = createMuiTheme({
   },
   custom: {
     layout: {
-      padding: 80,
+      padding: "42px 0 42px 80px",
       backgroundColor: "#000000",
+      minHeight: "100vh",
     },
   },
 } as ThemeOptions);

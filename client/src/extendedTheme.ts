@@ -4,7 +4,7 @@ declare module "@material-ui/core/styles/createMuiTheme" {
   interface Theme {
     custom: {
       layout: {
-        padding: number;
+        padding: string;
         backgroundColor: string;
       };
     };
@@ -12,7 +12,7 @@ declare module "@material-ui/core/styles/createMuiTheme" {
   interface ThemeOptions {
     custom?: {
       layout?: {
-        padding?: number;
+        padding?: string;
         backgroundColor?: string;
       };
     };
