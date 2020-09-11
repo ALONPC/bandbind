@@ -2,6 +2,10 @@
 
 Final Project Node.js Course with Escalab 2020
 
+# Documentation (REST services with POSTMAN)
+
+https://documenter.getpostman.com/view/6364978/TVK5bLMt
+
 # Commands
 
 ## On the client folder
