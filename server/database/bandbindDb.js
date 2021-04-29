@@ -1,4 +1,4 @@
-db.users.insert([
+const users = [
   {
     name: "admin",
     email: "admin@bandbind.dev",
@@ -26,9 +26,9 @@ db.users.insert([
       active: false,
     },
   },
-]);
+];
 
-db.subscriptions.insert([
+const subscriptions = [
   {
     plan: "MONTHLY",
     price: 10,
@@ -38,6 +38,7 @@ db.subscriptions.insert([
   },
   {
     plan: "YEARLY",
+
     price: 100,
     currency: "USD",
     discount: 20,
@@ -45,14 +46,15 @@ db.subscriptions.insert([
   },
   {
     plan: "4LIFE",
+
     price: 1000,
     currency: "USD",
     discount: 0,
     description: "Literally access for life",
   },
-]);
+];
 
-db.artists.insert([
+const artists = [
   {
     name: "Powerwolf",
     genres: ["german metal", "metal", "power metal", "progressive metal"],
@@ -4026,4 +4028,6 @@ db.artists.insert([
     url: "https://open.spotify.com/artist/7gTbq5nTZGQIUgjEGXQpOS",
     events: [],
   },
-]);
+];
+
+module.exports = { users, subscriptions, artists };

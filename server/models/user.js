@@ -5,7 +5,7 @@ const { v1: uuidv1 } = require("uuid");
 const subscriptionSchema = new mongoose.Schema({
   plan: {
     type: String,
-    enum: ["MONTHLY", "YEARLY", "4LIFE"],
+    // enum: ["MONTHLY", "YEARLY", "4LIFE"],
   },
   active: {
     type: Boolean,
@@ -67,7 +67,7 @@ userSchema
 
 userSchema.methods = {
   authenticate: function (plainText) {
-    return this.encryptPassword(plainText) === this.hashedPassword;
+    return this.encryptPassword(plainText) == this.hashedPassword;
   },
 
   encryptPassword: function (password) {
